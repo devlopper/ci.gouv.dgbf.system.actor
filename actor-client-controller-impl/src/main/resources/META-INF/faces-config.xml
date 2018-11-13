@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+	<!-- Do use PrettyFaces ONLY for navigation -->
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>functionCategoryListView</from-outcome>
+			<to-view-id>/private/function/category/list.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>functionCategoryEditView</from-outcome>
+			<to-view-id>/private/function/category/edit.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>functionCategoryConsultView</from-outcome>
+			<to-view-id>/private/function/category/consult.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>functionListView</from-outcome>
+			<to-view-id>/private/function/list.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>functionEditView</from-outcome>
+			<to-view-id>/private/function/edit.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>functionConsultView</from-outcome>
+			<to-view-id>/private/function/consult.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountRequestListView</from-outcome>
+			<to-view-id>/private/user/account/request/list.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountRequestEditView</from-outcome>
+			<to-view-id>/public/user/account/request/edit.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountRequestProcessView</from-outcome>
+			<to-view-id>/private/user/account/request/process.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+	</navigation-rule>
+
+</faces-config>
