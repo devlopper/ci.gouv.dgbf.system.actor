@@ -66,8 +66,8 @@ public class FunctionImpl extends AbstractDataImpl implements Function,Serializa
 		return this;
 	}
 	
-	public static FunctionCategory getByIdentifier(Object identifier) {
-		for(FunctionCategory index : FunctionCategory.COLLECTION)
+	public static Function getByIdentifier(Object identifier) {
+		for(Function index : Function.COLLECTION)
 			if(index.getIdentifier().equals(identifier))
 				return index;
 		return null;

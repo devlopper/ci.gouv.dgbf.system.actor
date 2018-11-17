@@ -21,7 +21,7 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 				menuBuilder.addItems(
 						__inject__(MenuItemBuilder.class).setCommandableName("Paramètres")
 							.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Catégorie de fonction").setCommandableNavigationIdentifierAndParameters("functionCategoryListView",new Object[] {"class","functioncategory","action","list"})
-							,__inject__(MenuItemBuilder.class).setCommandableName("Fonction")).setCommandableNavigationIdentifierAndParameters("functionListView",new Object[] {"class","function","action","list"})
+							,__inject__(MenuItemBuilder.class).setCommandableName("Fonction").setCommandableNavigationIdentifierAndParameters("functionListView",new Object[] {"class","function","action","list"}))
 						,__inject__(MenuItemBuilder.class).setCommandableName("Demande de compte")
 						,__inject__(MenuItemBuilder.class).setCommandableName("Identification")
 						,__inject__(MenuItemBuilder.class).setCommandableName("Compte utilisateur")
