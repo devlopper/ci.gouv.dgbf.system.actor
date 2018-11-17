@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities;
+package ci.gouv.dgbf.system.actor.client.controller.entities.function;
 
 import java.io.Serializable;
 
@@ -55,6 +55,13 @@ public class FunctionCategoryImpl extends AbstractDataImpl implements FunctionCa
 	public static FunctionCategory getByIdentifier(Object identifier) {
 		for(FunctionCategory index : FunctionCategory.COLLECTION)
 			if(index.getIdentifier().equals(identifier))
+				return index;
+		return null;
+	}
+	
+	public static FunctionCategory getByCode(Object code) {
+		for(FunctionCategory index : FunctionCategory.COLLECTION)
+			if(index.getCode().equals(code))
 				return index;
 		return null;
 	}

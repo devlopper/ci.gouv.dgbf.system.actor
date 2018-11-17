@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities;
+package ci.gouv.dgbf.system.actor.client.controller.entities.function;
 
 import java.util.Collection;
 

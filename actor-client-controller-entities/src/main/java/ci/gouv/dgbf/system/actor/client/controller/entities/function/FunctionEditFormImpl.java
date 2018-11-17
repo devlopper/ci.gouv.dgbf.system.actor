@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities;
+package ci.gouv.dgbf.system.actor.client.controller.entities.function;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Getter @Setter @Accessors(chain=true)
-public class FunctionCategoryEditFormImpl extends AbstractFormDataImpl<FunctionCategory> implements FunctionCategoryEditForm,Serializable {
+public class FunctionEditFormImpl extends AbstractFormDataImpl<Function> implements FunctionEditForm,Serializable {
 	private static final long serialVersionUID = 1L;
 	
 }

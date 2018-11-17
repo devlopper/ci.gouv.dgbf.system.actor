@@ -1,8 +1,6 @@
-package ci.gouv.dgbf.system.actor.client.controller.impl;
+package ci.gouv.dgbf.system.actor.client.controller.entities.function;
 
 import org.cyk.utility.client.controller.data.RowData;
-
-import ci.gouv.dgbf.system.actor.client.controller.entities.FunctionCategory;
 
 public interface FunctionCategoryReadRow extends RowData<FunctionCategory> {
 
