@@ -20,7 +20,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void __initialize__(Object object) {
+	public void __initialize__(Object object) {
 		__inject__(FunctionRunnableMap.class).set(CommandFunctionExecuteListenerThroughImpl.class, CommandFunctionExecuteListenerThroughFunctionRunnableImpl.class,Boolean.TRUE);
 		__inject__(FunctionRunnableMap.class).set(MenuBuilderMapGetterImpl.class, MenuBuilderMapGetterFunctionRunnableImpl.class,Boolean.TRUE);
 		__inject__(FunctionRunnableMap.class).set(InstanceGetterImpl.class, InstanceGetterFunctionRunnableImpl.class,Boolean.TRUE);
@@ -31,6 +31,6 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 	}
 	
 	@Override
-	protected void __destroy__(Object object) {}
+	public void __destroy__(Object object) {}
 	
 }
