@@ -7,7 +7,7 @@
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
-		
+		<!--
 		<navigation-case>
 			<from-outcome>functionCategoryListView</from-outcome>
 			<to-view-id>/private/function/category/list.jsf</to-view-id>
@@ -43,16 +43,11 @@
 			<to-view-id>/private/function/consult.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
-		
+		-->
+		<!--
 		<navigation-case>
 			<from-outcome>userAccountRequestListView</from-outcome>
 			<to-view-id>/private/user/account/request/list.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>userAccountRequestEditView</from-outcome>
-			<to-view-id>/public/user/account/request/edit.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -61,7 +56,13 @@
 			<to-view-id>/private/user/account/request/process.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
+		-->
 		
+		<navigation-case>
+			<from-outcome>userAccountRequestEditView</from-outcome>
+			<to-view-id>/public/user/account/request/edit.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
 	</navigation-rule>
 
 </faces-config>

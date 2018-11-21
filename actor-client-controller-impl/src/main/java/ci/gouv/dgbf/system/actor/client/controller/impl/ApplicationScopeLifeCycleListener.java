@@ -13,6 +13,7 @@ import org.cyk.utility.instance.InstanceGetterImpl;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 
 @ApplicationScoped
 public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeLifeCycleListener implements Serializable {
@@ -26,6 +27,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(FunctionCategory.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Function.class);
+		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccountRequest.class);
 	}
 	
 	@Override

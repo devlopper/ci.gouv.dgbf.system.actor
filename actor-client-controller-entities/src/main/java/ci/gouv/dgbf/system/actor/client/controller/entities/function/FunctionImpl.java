@@ -73,4 +73,11 @@ public class FunctionImpl extends AbstractDataImpl implements Function,Serializa
 		return null;
 	}
 	
+	public static Function getByCode(String code) {
+		for(Function index : Function.COLLECTION)
+			if(index.getCode().equals(code))
+				return index;
+		return null;
+	}
+	
 }
