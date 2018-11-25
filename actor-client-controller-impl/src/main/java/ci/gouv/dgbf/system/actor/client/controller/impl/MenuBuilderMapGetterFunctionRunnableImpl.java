@@ -26,9 +26,9 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 				MenuBuilder menuBuilder = __inject__(MenuBuilder.class).setRenderType(__inject__(MenuRenderTypeRowBar.class));
 				menuBuilder.addItems(
 						__inject__(MenuItemBuilder.class).setCommandableName("Paramètres")
-							.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Catégorie de fonction").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(FunctionCategory.class))
-							,__inject__(MenuItemBuilder.class).setCommandableName("Fonction").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(Function.class)))
-						,__inject__(MenuItemBuilder.class).setCommandableName("Demande de compte").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionCreate.class).setEntityClass(UserAccountRequest.class))
+							.addChild(__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(FunctionCategory.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(FunctionCategory.class))
+							,__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(Function.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(Function.class)))
+						,__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(UserAccountRequest.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionCreate.class).setEntityClass(UserAccountRequest.class))
 						,__inject__(MenuItemBuilder.class).setCommandableName("Identification")
 						,__inject__(MenuItemBuilder.class).setCommandableName("Compte utilisateur")
 							.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Traitements des demandes de compte utilisateur").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(UserAccountRequest.class))
