@@ -15,7 +15,6 @@ public class FunctionListWindowBuilderImpl extends AbstractWindowContainerManage
 		setRowClass(FunctionReadRow.class);
 		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, Function.PROPERTY_CODE,Function.PROPERTY_NAME
 				,__injectFieldHelper__().concatenate(Function.PROPERTY_CATEGORY,FunctionCategory.PROPERTY_NAME));
-		setGridObjects(Function.COLLECTION);
 	}
 	
 	@Override

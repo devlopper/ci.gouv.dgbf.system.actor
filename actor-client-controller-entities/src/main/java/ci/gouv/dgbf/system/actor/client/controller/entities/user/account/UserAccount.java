@@ -1,34 +1,34 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request;
+package ci.gouv.dgbf.system.actor.client.controller.entities.user.account;
 
 import org.cyk.utility.client.controller.data.Data;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 
-public interface UserAccountRequest extends Data {
+public interface UserAccount extends Data {
 
-	@Override UserAccountRequest setIdentifier(Object identifier);
-	@Override UserAccountRequest setCode(String code);
+	@Override UserAccount setIdentifier(Object identifier);
+	@Override UserAccount setCode(String code);
 	
 	String getFirstName();
-	UserAccountRequest setFirstName(String firstName);
+	UserAccount setFirstName(String firstName);
 	
 	String getLastNames();
-	UserAccountRequest setLastNames(String lastNames);
+	UserAccount setLastNames(String lastNames);
 	
 	String getEmployer();
-	UserAccountRequest setEmployer(String employer);
+	UserAccount setEmployer(String employer);
 	
 	String getEmployeeIdentifier();
-	UserAccountRequest setEmployeeIdentifier(String employeeIdentifier);
+	UserAccount setEmployeeIdentifier(String employeeIdentifier);
 	
 	Function getFunction();
-	UserAccountRequest setFunction(Function function);
+	UserAccount setFunction(Function function);
 	
 	String getHierarchyFirstName();
-	UserAccountRequest setHierarchyFirstName(String hierarchyFirstName);
+	UserAccount setHierarchyFirstName(String hierarchyFirstName);
 	
 	String getHierarchyLastNames();
-	UserAccountRequest setHierarchyLastNames(String hierarchyLastNames);
+	UserAccount setHierarchyLastNames(String hierarchyLastNames);
 	
 	/**/
 	

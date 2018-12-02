@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request;
+package ci.gouv.dgbf.system.actor.client.controller.entities.user.account;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import org.cyk.utility.client.controller.data.AbstractDataImpl;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 
-public class UserAccountRequestImpl extends AbstractDataImpl implements UserAccountRequest,Serializable {
+public class UserAccountImpl extends AbstractDataImpl implements UserAccount,Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Input @InputString @InputStringLineOne @NotNull
@@ -36,13 +36,13 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	private String hierarchyLastNames;
 	
 	@Override
-	public UserAccountRequest setIdentifier(Object identifier) {
-		return (UserAccountRequest) super.setIdentifier(identifier);
+	public UserAccount setIdentifier(Object identifier) {
+		return (UserAccount) super.setIdentifier(identifier);
 	}
 	
 	@Override
-	public UserAccountRequest setCode(String code) {
-		return (UserAccountRequest) super.setCode(code);
+	public UserAccount setCode(String code) {
+		return (UserAccount) super.setCode(code);
 	}
 	
 	@Override
@@ -51,7 +51,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setFirstName(String firstName) {
+	public UserAccount setFirstName(String firstName) {
 		this.firstName = firstName;
 		return this;
 	}
@@ -62,7 +62,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setLastNames(String lastNames) {
+	public UserAccount setLastNames(String lastNames) {
 		this.lastNames = lastNames;
 		return this;
 	}
@@ -73,7 +73,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setEmployer(String employer) {
+	public UserAccount setEmployer(String employer) {
 		this.employer = employer;
 		return this;
 	}
@@ -84,7 +84,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setEmployeeIdentifier(String employeeIdentifier) {
+	public UserAccount setEmployeeIdentifier(String employeeIdentifier) {
 		this.employeeIdentifier = employeeIdentifier;
 		return this;
 	}
@@ -95,7 +95,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setFunction(Function function) {
+	public UserAccount setFunction(Function function) {
 		this.function = function;
 		return this;
 	}
@@ -106,7 +106,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setHierarchyFirstName(String hierarchyFirstName) {
+	public UserAccount setHierarchyFirstName(String hierarchyFirstName) {
 		this.hierarchyFirstName = hierarchyFirstName;
 		return this;
 	}
@@ -117,7 +117,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 
 	@Override
-	public UserAccountRequest setHierarchyLastNames(String hierarchyLastNames) {
+	public UserAccount setHierarchyLastNames(String hierarchyLastNames) {
 		this.hierarchyLastNames = hierarchyLastNames;
 		return this;
 	}	

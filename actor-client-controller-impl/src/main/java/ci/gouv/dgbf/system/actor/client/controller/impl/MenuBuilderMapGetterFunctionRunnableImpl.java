@@ -10,10 +10,11 @@ import org.cyk.utility.client.controller.component.menu.MenuItemBuilder;
 import org.cyk.utility.client.controller.component.menu.MenuRenderTypeRowBar;
 import org.cyk.utility.scope.ScopeSession;
 import org.cyk.utility.system.action.SystemActionCreate;
-import org.cyk.utility.system.action.SystemActionList;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
+import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.UserAccount;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 
 public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRunnableImpl<MenuBuilderMapGetter> implements Serializable {
@@ -26,13 +27,14 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 				MenuBuilder menuBuilder = __inject__(MenuBuilder.class).setRenderType(__inject__(MenuRenderTypeRowBar.class));
 				menuBuilder.addItems(
 						__inject__(MenuItemBuilder.class).setCommandableName("Paramètres")
-							.addChild(__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(FunctionCategory.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(FunctionCategory.class))
-							,__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(Function.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(Function.class)))
+							.addEntitiesList(FunctionCategory.class,Function.class,Role.class)
 						,__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(UserAccountRequest.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionCreate.class).setEntityClass(UserAccountRequest.class))
 						,__inject__(MenuItemBuilder.class).setCommandableName("Identification")
 						,__inject__(MenuItemBuilder.class).setCommandableName("Compte utilisateur")
-							.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Traitements des demandes de compte utilisateur").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(UserAccountRequest.class))
-								,__inject__(MenuItemBuilder.class).setCommandableName("Création de compte utilisateur"))
+							.addEntitySelect(UserAccountRequest.class,"validate").getLastChild().setCommandableName("Traitements des demandes de compte utilisateur").getParent()
+							.addEntitiesCreate(UserAccount.class).getLastChild().setCommandableName("Création de compte utilisateur").getParent()
+							/*.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Traitements des demandes de compte utilisateur").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(UserAccountRequest.class))
+								,__inject__(MenuItemBuilder.class).setCommandableName("Création de compte utilisateur"))*/
 						,__inject__(MenuItemBuilder.class).setCommandableName("Administration")
 							.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Validation de compte utilisateur")
 								,__inject__(MenuItemBuilder.class).setCommandableName("Gestion des affectations")

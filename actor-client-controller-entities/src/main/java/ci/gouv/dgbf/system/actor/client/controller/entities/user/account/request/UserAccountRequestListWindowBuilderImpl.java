@@ -14,7 +14,6 @@ public class UserAccountRequestListWindowBuilderImpl extends AbstractWindowConta
 		setRowClass(UserAccountRequestReadRow.class);
 		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountRequest.PROPERTY_CODE,UserAccountRequest.PROPERTY_FIRST_NAME
 				,UserAccountRequest.PROPERTY_LAST_NAMES,UserAccountRequest.PROPERTY_EMPLOYER);
-		setGridObjects(UserAccountRequest.COLLECTION);
 	}
 	
 	@Override
