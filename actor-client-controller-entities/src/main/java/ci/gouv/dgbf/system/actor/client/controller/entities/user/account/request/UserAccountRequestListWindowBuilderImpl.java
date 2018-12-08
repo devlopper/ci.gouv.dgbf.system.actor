@@ -5,6 +5,8 @@ import org.cyk.utility.client.controller.component.grid.GridBuilder;
 import org.cyk.utility.client.controller.component.window.AbstractWindowContainerManagedWindowBuilderListDataImpl;
 import org.cyk.utility.client.controller.data.RowData;
 
+import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
+
 public class UserAccountRequestListWindowBuilderImpl extends AbstractWindowContainerManagedWindowBuilderListDataImpl implements UserAccountRequestListWindowBuilder, Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -12,8 +14,8 @@ public class UserAccountRequestListWindowBuilderImpl extends AbstractWindowConta
 	protected void __listenPostConstruct__() {
 		super.__listenPostConstruct__();
 		setRowClass(UserAccountRequestReadRow.class);
-		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountRequest.PROPERTY_CODE,UserAccountRequest.PROPERTY_FIRST_NAME
-				,UserAccountRequest.PROPERTY_LAST_NAMES,UserAccountRequest.PROPERTY_EMPLOYER);
+		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountRequest.PROPERTY_CODE,UserAccountRequest.PROPERTY_DATE
+				,__injectFieldHelper__().concatenate(UserAccountRequest.PROPERTY_PERSON,Person.PROPERTY_FIRST_NAME_AND_LAST_NAMES));
 	}
 	
 	@Override

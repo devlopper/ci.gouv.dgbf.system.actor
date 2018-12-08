@@ -1,43 +1,47 @@
 package ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request;
 
+import java.util.Collection;
+import java.util.Date;
+
 import org.cyk.utility.client.controller.data.Data;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
+import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
+import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
+import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
 
 public interface UserAccountRequest extends Data {
 
 	@Override UserAccountRequest setIdentifier(Object identifier);
 	@Override UserAccountRequest setCode(String code);
 	
-	String getFirstName();
-	UserAccountRequest setFirstName(String firstName);
+	Date getDate();
+	UserAccountRequest setDate(Date date);
 	
-	String getLastNames();
-	UserAccountRequest setLastNames(String lastNames);
+	Person getPerson();
+	UserAccountRequest setPerson(Person person);
 	
-	String getEmployer();
-	UserAccountRequest setEmployer(String employer);
+	Collection<Role> getRoles();
+	UserAccountRequest setRoles(Collection<Role> roles);
 	
-	String getEmployeeIdentifier();
-	UserAccountRequest setEmployeeIdentifier(String employeeIdentifier);
+	Collection<Software> getSoftwares();
+	UserAccountRequest setSoftwares(Collection<Software> softwares);
 	
-	Function getFunction();
-	UserAccountRequest setFunction(Function function);
+	String getComments();
+	UserAccountRequest setComments(String comments);
 	
-	String getHierarchyFirstName();
-	UserAccountRequest setHierarchyFirstName(String hierarchyFirstName);
+	Date getProcessingDate();
+	UserAccountRequest setProcessingDate(Date processingDate);
 	
-	String getHierarchyLastNames();
-	UserAccountRequest setHierarchyLastNames(String hierarchyLastNames);
+	String getStatus();
+	UserAccountRequest setStatus(String status);
 	
 	/**/
 	
-	String PROPERTY_FIRST_NAME = "firstName";
-	String PROPERTY_LAST_NAMES = "lastNames";
-	String PROPERTY_EMPLOYER = "employer";
-	String PROPERTY_EMPLOYEE_IDENTIFIER = "employeeIdentifier";
-	String PROPERTY_FUNCTION = "function";
-	String PROPERTY_HIERARCHY_FIRST_NAME = "hierarchyFirstName";
-	String PROPERTY_HIERARCHY_LAST_NAMES = "hierarchyLastNames";
-	
+	String PROPERTY_DATE = "date";
+	String PROPERTY_PERSON = "person";
+	String PROPERTY_COMMENTS = "comments";
+	String PROPERTY_PROCESSING_DATE = "processingDate";
+	String PROPERTY_STATUS = "status";
+	String PROPERTY_ROLES = "roles";
+	String PROPERTY_SOFTWARES = "softwares";
 }

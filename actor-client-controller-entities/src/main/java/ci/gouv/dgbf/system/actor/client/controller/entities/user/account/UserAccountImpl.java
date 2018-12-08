@@ -9,31 +9,17 @@ import org.cyk.utility.client.controller.component.annotation.InputString;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
 import org.cyk.utility.client.controller.data.AbstractDataImpl;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
+import ci.gouv.dgbf.system.actor.client.controller.entities.account.Account;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.User;
 
 public class UserAccountImpl extends AbstractDataImpl implements UserAccount,Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Input @InputString @InputStringLineOne @NotNull
-	private String firstName;
+	private User user;
 	
 	@Input @InputString @InputStringLineOne @NotNull
-	private String lastNames;
-	
-	@Input @InputString @InputStringLineOne @NotNull
-	private String employer;
-	
-	@Input @InputString @InputStringLineOne @NotNull
-	private String employeeIdentifier;
-	
-	@Input @InputString @InputStringLineOne @NotNull
-	private Function function;
-	
-	@Input @InputString @InputStringLineOne @NotNull
-	private String hierarchyFirstName;
-	
-	@Input @InputString @InputStringLineOne @NotNull
-	private String hierarchyLastNames;
+	private Account account;
 	
 	@Override
 	public UserAccount setIdentifier(Object identifier) {
@@ -46,80 +32,27 @@ public class UserAccountImpl extends AbstractDataImpl implements UserAccount,Ser
 	}
 	
 	@Override
-	public String getFirstName() {
-		return firstName;
+	public User getUser() {
+		return user;
 	}
-
+	
 	@Override
-	public UserAccount setFirstName(String firstName) {
-		this.firstName = firstName;
+	public UserAccount setUser(User user) {
+		this.user = user;
 		return this;
 	}
 
 	@Override
-	public String getLastNames() {
-		return lastNames;
+	public Account getAccount() {
+		return account;
 	}
 
 	@Override
-	public UserAccount setLastNames(String lastNames) {
-		this.lastNames = lastNames;
+	public UserAccount setAccount(Account account) {
+		this.account = account;
 		return this;
 	}
-
-	@Override
-	public String getEmployer() {
-		return employer;
-	}
-
-	@Override
-	public UserAccount setEmployer(String employer) {
-		this.employer = employer;
-		return this;
-	}
-
-	@Override
-	public String getEmployeeIdentifier() {
-		return employeeIdentifier;
-	}
-
-	@Override
-	public UserAccount setEmployeeIdentifier(String employeeIdentifier) {
-		this.employeeIdentifier = employeeIdentifier;
-		return this;
-	}
-
-	@Override
-	public Function getFunction() {
-		return function;
-	}
-
-	@Override
-	public UserAccount setFunction(Function function) {
-		this.function = function;
-		return this;
-	}
-
-	@Override
-	public String getHierarchyFirstName() {
-		return hierarchyFirstName;
-	}
-
-	@Override
-	public UserAccount setHierarchyFirstName(String hierarchyFirstName) {
-		this.hierarchyFirstName = hierarchyFirstName;
-		return this;
-	}
-
-	@Override
-	public String getHierarchyLastNames() {
-		return hierarchyLastNames;
-	}
-
-	@Override
-	public UserAccount setHierarchyLastNames(String hierarchyLastNames) {
-		this.hierarchyLastNames = hierarchyLastNames;
-		return this;
-	}	
+	
+	
 	
 }

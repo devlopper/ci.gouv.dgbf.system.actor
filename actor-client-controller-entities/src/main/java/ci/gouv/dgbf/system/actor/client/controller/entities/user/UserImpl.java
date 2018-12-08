@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import org.cyk.utility.client.controller.component.annotation.Input;
+import org.cyk.utility.client.controller.component.annotation.InputChoice;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOneCombo;
 import org.cyk.utility.client.controller.component.annotation.InputString;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
 import org.cyk.utility.client.controller.data.AbstractDataImpl;
@@ -26,7 +29,7 @@ public class UserImpl extends AbstractDataImpl implements User,Serializable {
 	@Input @InputString @InputStringLineOne @NotNull
 	private String employeeIdentifier;
 	
-	@Input @InputString @InputStringLineOne @NotNull
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo @NotNull
 	private Function function;
 	
 	@Input @InputString @InputStringLineOne @NotNull

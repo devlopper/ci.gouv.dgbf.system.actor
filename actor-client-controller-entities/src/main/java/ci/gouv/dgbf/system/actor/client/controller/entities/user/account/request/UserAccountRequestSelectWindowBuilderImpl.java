@@ -12,7 +12,8 @@ public class UserAccountRequestSelectWindowBuilderImpl extends AbstractWindowCon
 	@Override
 	protected void __listenPostConstruct__() {
 		super.__listenPostConstruct__();
-		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountRequest.PROPERTY_CODE,UserAccountRequest.PROPERTY_FIRST_NAME,UserAccountRequest.PROPERTY_LAST_NAMES);
+		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountRequest.PROPERTY_CODE
+				,UserAccountRequest.PROPERTY_DATE,UserAccountRequest.PROPERTY_PERSON);
 	}
 	
 	@Override

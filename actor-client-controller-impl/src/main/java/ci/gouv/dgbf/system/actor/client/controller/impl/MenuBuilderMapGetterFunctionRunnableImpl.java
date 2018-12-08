@@ -33,8 +33,6 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 						,__inject__(MenuItemBuilder.class).setCommandableName("Compte utilisateur")
 							.addEntitySelect(UserAccountRequest.class,"validate").getLastChild().setCommandableName("Traitements des demandes de compte utilisateur").getParent()
 							.addEntitiesCreate(UserAccount.class).getLastChild().setCommandableName("Création de compte utilisateur").getParent()
-							/*.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Traitements des demandes de compte utilisateur").setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionList.class).setEntityClass(UserAccountRequest.class))
-								,__inject__(MenuItemBuilder.class).setCommandableName("Création de compte utilisateur"))*/
 						,__inject__(MenuItemBuilder.class).setCommandableName("Administration")
 							.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Validation de compte utilisateur")
 								,__inject__(MenuItemBuilder.class).setCommandableName("Gestion des affectations")

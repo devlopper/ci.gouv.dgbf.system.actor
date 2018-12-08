@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import org.cyk.utility.client.controller.component.annotation.Input;
+import org.cyk.utility.client.controller.component.annotation.InputChoice;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOneCombo;
 import org.cyk.utility.client.controller.component.annotation.InputString;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineMany;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
@@ -20,7 +23,7 @@ public class FunctionImpl extends AbstractDataImpl implements Function,Serializa
 	@Input @InputString @InputStringLineMany
 	private String description;
 	
-	//@Input @InputString @InputStringLineOne
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo
 	private FunctionCategory category;
 	
 	@Override

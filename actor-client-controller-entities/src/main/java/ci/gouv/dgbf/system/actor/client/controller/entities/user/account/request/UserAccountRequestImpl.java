@@ -1,39 +1,47 @@
 package ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
 import org.cyk.utility.client.controller.component.annotation.Input;
+import org.cyk.utility.client.controller.component.annotation.InputChoice;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceMany;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceManyCheckBox;
 import org.cyk.utility.client.controller.component.annotation.InputString;
+import org.cyk.utility.client.controller.component.annotation.InputStringLineMany;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
 import org.cyk.utility.client.controller.data.AbstractDataImpl;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
+import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
+import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
+import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
 
 public class UserAccountRequestImpl extends AbstractDataImpl implements UserAccountRequest,Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Input @InputString @InputStringLineOne @NotNull
-	private String firstName;
+	private Date date;
 	
 	@Input @InputString @InputStringLineOne @NotNull
-	private String lastNames;
+	private Person person;
+	
+	@Input @InputString @InputStringLineMany @NotNull
+	private String comments;
 	
 	@Input @InputString @InputStringLineOne @NotNull
-	private String employer;
+	private Date processingDate;
 	
 	@Input @InputString @InputStringLineOne @NotNull
-	private String employeeIdentifier;
+	private String status;
 	
-	@Input @InputString @InputStringLineOne @NotNull
-	private Function function;
+	@Input @InputChoice @InputChoiceMany @InputChoiceManyCheckBox @NotNull
+	private Collection<Role> roles;
 	
-	@Input @InputString @InputStringLineOne @NotNull
-	private String hierarchyFirstName;
-	
-	@Input @InputString @InputStringLineOne @NotNull
-	private String hierarchyLastNames;
+	@Input @InputChoice @InputChoiceMany @InputChoiceManyCheckBox @NotNull
+	private Collection<Software> softwares;
 	
 	@Override
 	public UserAccountRequest setIdentifier(Object identifier) {
@@ -46,80 +54,80 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 	
 	@Override
-	public String getFirstName() {
-		return firstName;
+	public Collection<Role> getRoles() {
+		return roles;
 	}
-
-	@Override
-	public UserAccountRequest setFirstName(String firstName) {
-		this.firstName = firstName;
-		return this;
-	}
-
-	@Override
-	public String getLastNames() {
-		return lastNames;
-	}
-
-	@Override
-	public UserAccountRequest setLastNames(String lastNames) {
-		this.lastNames = lastNames;
-		return this;
-	}
-
-	@Override
-	public String getEmployer() {
-		return employer;
-	}
-
-	@Override
-	public UserAccountRequest setEmployer(String employer) {
-		this.employer = employer;
-		return this;
-	}
-
-	@Override
-	public String getEmployeeIdentifier() {
-		return employeeIdentifier;
-	}
-
-	@Override
-	public UserAccountRequest setEmployeeIdentifier(String employeeIdentifier) {
-		this.employeeIdentifier = employeeIdentifier;
-		return this;
-	}
-
-	@Override
-	public Function getFunction() {
-		return function;
-	}
-
-	@Override
-	public UserAccountRequest setFunction(Function function) {
-		this.function = function;
-		return this;
-	}
-
-	@Override
-	public String getHierarchyFirstName() {
-		return hierarchyFirstName;
-	}
-
-	@Override
-	public UserAccountRequest setHierarchyFirstName(String hierarchyFirstName) {
-		this.hierarchyFirstName = hierarchyFirstName;
-		return this;
-	}
-
-	@Override
-	public String getHierarchyLastNames() {
-		return hierarchyLastNames;
-	}
-
-	@Override
-	public UserAccountRequest setHierarchyLastNames(String hierarchyLastNames) {
-		this.hierarchyLastNames = hierarchyLastNames;
-		return this;
-	}	
 	
+	@Override
+	public UserAccountRequest setRoles(Collection<Role> roles) {
+		this.roles = roles;
+		return this;
+	}
+	
+	@Override
+	public Collection<Software> getSoftwares() {
+		return softwares;
+	}
+	
+	@Override
+	public UserAccountRequest setSoftwares(Collection<Software> softwares) {
+		this.softwares = softwares;
+		return this;
+	}
+	
+	@Override
+	public Date getDate() {
+		return date;
+	}
+	
+	@Override
+	public UserAccountRequest setDate(Date date) {
+		this.date = date;
+		return this;
+	}
+	
+	@Override
+	public Person getPerson() {
+		return person;
+	}
+
+	@Override
+	public UserAccountRequest setPerson(Person person) {
+		this.person = person;
+		return this;
+	}
+
+	@Override
+	public String getComments() {
+		return comments;
+	}
+
+	@Override
+	public UserAccountRequest setComments(String comments) {
+		this.comments = comments;
+		return this;
+	}
+
+	@Override
+	public Date getProcessingDate() {
+		return processingDate;
+	}
+
+	@Override
+	public UserAccountRequest setProcessingDate(Date processingDate) {
+		this.processingDate = processingDate;
+		return this;
+	}
+
+	@Override
+	public String getStatus() {
+		return status;
+	}
+
+	@Override
+	public UserAccountRequest setStatus(String status) {
+		this.status = status;
+		return this;
+	}
+
 }

@@ -12,8 +12,7 @@ public class UserAccountListWindowBuilderImpl extends AbstractWindowContainerMan
 	protected void __listenPostConstruct__() {
 		super.__listenPostConstruct__();
 		setRowClass(UserAccountReadRow.class);
-		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccount.PROPERTY_CODE,UserAccount.PROPERTY_FIRST_NAME
-				,UserAccount.PROPERTY_LAST_NAMES,UserAccount.PROPERTY_EMPLOYER);
+		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccount.PROPERTY_CODE,UserAccount.PROPERTY_USER);
 	}
 	
 	@Override

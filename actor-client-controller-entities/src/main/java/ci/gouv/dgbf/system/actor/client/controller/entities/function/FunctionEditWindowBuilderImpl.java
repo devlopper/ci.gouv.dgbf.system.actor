@@ -17,6 +17,7 @@ public class FunctionEditWindowBuilderImpl extends AbstractWindowContainerManage
 	
 	@Override
 	protected void __execute__(Form form,Data data,ViewBuilder viewBuilder) {
+		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_CATEGORY);
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_CODE);
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_NAME);
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_DESCRIPTION);

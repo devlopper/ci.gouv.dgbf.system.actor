@@ -23,8 +23,4 @@ public class FunctionCategoryControllerImpl extends AbstractControllerEntityPers
 				);
 	}
 	
-	@Override
-	protected FunctionCategory __instanciateOneRandomly__(Integer index) {
-		return super.__instanciateOneRandomly__(index).setName("VseName"+index).setDescription("VSeLine01"+index+"\nVSELine02"+index);
-	}
 }

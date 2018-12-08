@@ -2,42 +2,23 @@ package ci.gouv.dgbf.system.actor.client.controller.entities.user.account;
 
 import org.cyk.utility.client.controller.data.Data;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
+import ci.gouv.dgbf.system.actor.client.controller.entities.account.Account;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.User;
 
 public interface UserAccount extends Data {
 
 	@Override UserAccount setIdentifier(Object identifier);
 	@Override UserAccount setCode(String code);
 	
-	String getFirstName();
-	UserAccount setFirstName(String firstName);
+	User getUser();
+	UserAccount setUser(User user);
 	
-	String getLastNames();
-	UserAccount setLastNames(String lastNames);
-	
-	String getEmployer();
-	UserAccount setEmployer(String employer);
-	
-	String getEmployeeIdentifier();
-	UserAccount setEmployeeIdentifier(String employeeIdentifier);
-	
-	Function getFunction();
-	UserAccount setFunction(Function function);
-	
-	String getHierarchyFirstName();
-	UserAccount setHierarchyFirstName(String hierarchyFirstName);
-	
-	String getHierarchyLastNames();
-	UserAccount setHierarchyLastNames(String hierarchyLastNames);
+	Account getAccount();
+	UserAccount setAccount(Account account);
 	
 	/**/
 	
-	String PROPERTY_FIRST_NAME = "firstName";
-	String PROPERTY_LAST_NAMES = "lastNames";
-	String PROPERTY_EMPLOYER = "employer";
-	String PROPERTY_EMPLOYEE_IDENTIFIER = "employeeIdentifier";
-	String PROPERTY_FUNCTION = "function";
-	String PROPERTY_HIERARCHY_FIRST_NAME = "hierarchyFirstName";
-	String PROPERTY_HIERARCHY_LAST_NAMES = "hierarchyLastNames";
+	String PROPERTY_USER = "user";
+	String PROPERTY_ACCOUNT = "account";
 	
 }

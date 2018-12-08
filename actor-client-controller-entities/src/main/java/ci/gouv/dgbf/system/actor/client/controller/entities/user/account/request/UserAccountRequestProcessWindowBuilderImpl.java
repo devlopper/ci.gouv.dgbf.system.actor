@@ -13,7 +13,9 @@ public class UserAccountRequestProcessWindowBuilderImpl extends AbstractWindowCo
 	@Override
 	protected void __execute__(Form form, Data data, ViewBuilder viewBuilder) {
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, UserAccountRequest.PROPERTY_CODE);
-		viewBuilder.addComponentBuilderByObjectByFieldNames(data, UserAccountRequest.PROPERTY_FIRST_NAME);
+		viewBuilder.addComponentBuilderByObjectByFieldNames(data, UserAccountRequest.PROPERTY_DATE);
+		viewBuilder.addComponentBuilderByObjectByFieldNames(data, UserAccountRequest.PROPERTY_PERSON);
+		viewBuilder.addComponentBuilderByObjectByFieldNames(data, UserAccountRequest.PROPERTY_COMMENTS);
 	}
 	
 }
