@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.cyk.utility.client.controller.data.Data;
 
+import ci.gouv.dgbf.system.actor.client.controller.entities.account.Credentials;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
@@ -35,6 +36,9 @@ public interface UserAccountRequest extends Data {
 	String getStatus();
 	UserAccountRequest setStatus(String status);
 	
+	Credentials getCredentials();
+	UserAccountRequest setCredentials(Credentials credentials);
+	
 	/**/
 	
 	String PROPERTY_DATE = "date";
@@ -44,4 +48,5 @@ public interface UserAccountRequest extends Data {
 	String PROPERTY_STATUS = "status";
 	String PROPERTY_ROLES = "roles";
 	String PROPERTY_SOFTWARES = "softwares";
+	String PROPERTY_CREDENTIALS = "credentials";
 }

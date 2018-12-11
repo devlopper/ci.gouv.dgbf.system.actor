@@ -50,5 +50,8 @@ public class SoftwareImpl extends AbstractDataImpl implements Software,Serializa
 		return this;
 	}
 
-	
+	@Override
+	public String toString() {
+		return name;
+	}
 }

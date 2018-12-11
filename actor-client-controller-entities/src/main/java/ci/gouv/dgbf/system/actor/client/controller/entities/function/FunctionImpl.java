@@ -69,4 +69,8 @@ public class FunctionImpl extends AbstractDataImpl implements Function,Serializa
 		return this;
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 }

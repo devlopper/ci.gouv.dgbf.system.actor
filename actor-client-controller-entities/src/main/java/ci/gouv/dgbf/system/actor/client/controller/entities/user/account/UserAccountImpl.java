@@ -5,8 +5,9 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import org.cyk.utility.client.controller.component.annotation.Input;
-import org.cyk.utility.client.controller.component.annotation.InputString;
-import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
+import org.cyk.utility.client.controller.component.annotation.InputChoice;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOneCombo;
 import org.cyk.utility.client.controller.data.AbstractDataImpl;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.account.Account;
@@ -15,10 +16,10 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.user.User;
 public class UserAccountImpl extends AbstractDataImpl implements UserAccount,Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Input @InputString @InputStringLineOne @NotNull
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo @NotNull
 	private User user;
 	
-	@Input @InputString @InputStringLineOne @NotNull
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo @NotNull
 	private Account account;
 	
 	@Override
@@ -52,7 +53,5 @@ public class UserAccountImpl extends AbstractDataImpl implements UserAccount,Ser
 		this.account = account;
 		return this;
 	}
-	
-	
 	
 }

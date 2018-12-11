@@ -8,6 +8,7 @@ import org.cyk.utility.__kernel__.AbstractApplicationScopeLifeCycleListener;
 import org.cyk.utility.__kernel__.function.FunctionRunnableMap;
 import org.cyk.utility.client.controller.component.menu.MenuBuilderMapGetterImpl;
 import org.cyk.utility.identifier.resource.UniformResourceIdentifierParameterValueMatrix;
+import org.cyk.utility.string.repository.StringRepositoryResourceBundle;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
@@ -28,6 +29,8 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Function.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccountRequest.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccount.class);
+		
+		__inject__(StringRepositoryResourceBundle.class).addBundle("ci.gouv.dgbf.system.actor.client.controller.entities.message");
 		
 	}
 	

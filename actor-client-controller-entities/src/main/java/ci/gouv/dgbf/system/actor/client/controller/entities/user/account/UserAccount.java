@@ -20,5 +20,4 @@ public interface UserAccount extends Data {
 	
 	String PROPERTY_USER = "user";
 	String PROPERTY_ACCOUNT = "account";
-	
 }

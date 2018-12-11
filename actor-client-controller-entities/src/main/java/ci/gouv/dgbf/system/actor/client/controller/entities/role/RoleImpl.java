@@ -50,5 +50,8 @@ public class RoleImpl extends AbstractDataImpl implements Role,Serializable {
 		return this;
 	}
 
-	
+	@Override
+	public String toString() {
+		return name;
+	}
 }

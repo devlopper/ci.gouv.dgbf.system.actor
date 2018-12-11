@@ -15,6 +15,7 @@ import org.cyk.utility.client.controller.component.annotation.InputStringLineMan
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
 import org.cyk.utility.client.controller.data.AbstractDataImpl;
 
+import ci.gouv.dgbf.system.actor.client.controller.entities.account.Credentials;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
@@ -36,6 +37,8 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	
 	@Input @InputString @InputStringLineOne @NotNull
 	private String status;
+	
+	private Credentials credentials;
 	
 	@Input @InputChoice @InputChoiceMany @InputChoiceManyCheckBox @NotNull
 	private Collection<Role> roles;
@@ -127,6 +130,16 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	@Override
 	public UserAccountRequest setStatus(String status) {
 		this.status = status;
+		return this;
+	}
+	
+	@Override
+	public Credentials getCredentials() {
+		return credentials;
+	}
+	@Override
+	public UserAccountRequest setCredentials(Credentials credentials) {
+		this.credentials = credentials;
 		return this;
 	}
 
