@@ -10,6 +10,8 @@ import org.cyk.utility.client.controller.component.annotation.Input;
 import org.cyk.utility.client.controller.component.annotation.InputChoice;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceMany;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceManyCheckBox;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOneRadio;
 import org.cyk.utility.client.controller.component.annotation.InputString;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineMany;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
@@ -18,7 +20,7 @@ import org.cyk.utility.client.controller.data.AbstractDataImpl;
 import ci.gouv.dgbf.system.actor.client.controller.entities.account.Credentials;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
-import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
+import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
 
 public class UserAccountRequestImpl extends AbstractDataImpl implements UserAccountRequest,Serializable {
 	private static final long serialVersionUID = 1L;
@@ -35,8 +37,11 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	@Input @InputString @InputStringLineOne @NotNull
 	private Date processingDate;
 	
-	@Input @InputString @InputStringLineOne @NotNull
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneRadio @NotNull
 	private String status;
+	
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneRadio @NotNull
+	private String accepted;
 	
 	private Credentials credentials;
 	
@@ -44,7 +49,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	private Collection<Role> roles;
 	
 	@Input @InputChoice @InputChoiceMany @InputChoiceManyCheckBox @NotNull
-	private Collection<Software> softwares;
+	private Collection<Service> services;
 	
 	@Override
 	public UserAccountRequest setIdentifier(Object identifier) {
@@ -68,13 +73,13 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 	
 	@Override
-	public Collection<Software> getSoftwares() {
-		return softwares;
+	public Collection<Service> getServices() {
+		return services;
 	}
 	
 	@Override
-	public UserAccountRequest setSoftwares(Collection<Software> softwares) {
-		this.softwares = softwares;
+	public UserAccountRequest setServices(Collection<Service> services) {
+		this.services = services;
 		return this;
 	}
 	
@@ -99,7 +104,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 		this.person = person;
 		return this;
 	}
-
+	
 	@Override
 	public String getComments() {
 		return comments;
@@ -110,7 +115,7 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 		this.comments = comments;
 		return this;
 	}
-
+	
 	@Override
 	public Date getProcessingDate() {
 		return processingDate;
@@ -134,9 +139,21 @@ public class UserAccountRequestImpl extends AbstractDataImpl implements UserAcco
 	}
 	
 	@Override
+	public String getAccepted() {
+		return accepted;
+	}
+
+	@Override
+	public UserAccountRequest setAccepted(String accepted) {
+		this.accepted = accepted;
+		return this;
+	}
+	
+	@Override
 	public Credentials getCredentials() {
 		return credentials;
 	}
+	
 	@Override
 	public UserAccountRequest setCredentials(Credentials credentials) {
 		this.credentials = credentials;

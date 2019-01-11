@@ -52,4 +52,8 @@ public class FunctionCategoryImpl extends AbstractDataImpl implements FunctionCa
 		return this;
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 }

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import org.cyk.utility.client.controller.component.annotation.Input;
+import org.cyk.utility.client.controller.component.annotation.InputBooleanButton;
 import org.cyk.utility.client.controller.component.annotation.InputChoice;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceOneCombo;
@@ -22,6 +23,9 @@ public class FunctionImpl extends AbstractDataImpl implements Function,Serializa
 	
 	@Input @InputString @InputStringLineMany
 	private String description;
+	
+	@Input @InputBooleanButton
+	private Boolean isAutomaticallyCreateUserAccountRequest;
 	
 	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo
 	private FunctionCategory category;
@@ -55,6 +59,17 @@ public class FunctionImpl extends AbstractDataImpl implements Function,Serializa
 	@Override
 	public Function setDescription(String description) {
 		this.description = description;
+		return this;
+	}
+	
+	@Override
+	public Boolean getIsAutomaticallyCreateUserAccountRequest() {
+		return isAutomaticallyCreateUserAccountRequest;
+	}
+	
+	@Override
+	public Function setIsAutomaticallyCreateUserAccountRequest(Boolean isAutomaticallyCreateUserAccountRequest) {
+		this.isAutomaticallyCreateUserAccountRequest = isAutomaticallyCreateUserAccountRequest;
 		return this;
 	}
 	

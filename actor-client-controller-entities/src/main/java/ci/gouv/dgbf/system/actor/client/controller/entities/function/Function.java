@@ -13,6 +13,9 @@ public interface Function extends Data {
 	String getDescription();
 	Function setDescription(String description);
 	
+	Boolean getIsAutomaticallyCreateUserAccountRequest();
+	Function setIsAutomaticallyCreateUserAccountRequest(Boolean isAutomaticallyCreateUserAccountRequest);
+	
 	FunctionCategory getCategory();
 	Function setCategory(FunctionCategory category);
 	
@@ -20,6 +23,7 @@ public interface Function extends Data {
 	
 	String PROPERTY_NAME = "name";
 	String PROPERTY_DESCRIPTION = "description";
+	String PROPERTY_IS_AUTOMATICALLY_CREATE_USER_ACCOUNT_REQUEST = "isAutomaticallyCreateUserAccountRequest";
 	String PROPERTY_CATEGORY = "category";
 	
 }

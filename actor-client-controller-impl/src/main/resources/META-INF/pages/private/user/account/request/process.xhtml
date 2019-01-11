@@ -5,19 +5,41 @@
       xmlns:f="http://java.sun.com/jsf/core"      
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:cyk="http://primefaces.jsf.web.utility.cyk.org">
 	
-    <h:head>
-        <title>
-        	<h:outputText value="Traitement de demande de compte utilisateur" />
-        </title>
-    </h:head>
-    <h:body>
-    	<h:form prependId="false">
-    		<cyk:view value="#{userAccountRequestEditPage.formView}" />
-    		<p:autoUpdate />
-    	</h:form>
-    </h:body>
+    <cyk:page value="#{userAccountRequestProcessPage}">
+    	<ui:define name="centerCenter">
+    		<div class="ui-g-12">
+	    		<p:panelGrid columns="2">
+	    			<h:outputText value="Nom" /><h:outputText value="Konan" />
+	    			<h:outputText value="Prénoms" /><h:outputText value="Gérard" />
+	    			<h:outputText value="Sexe" /><h:outputText value="Masculin" />
+	    			<h:outputText value="Email" /><h:outputText value="konan@mail.com" />
+	    			<h:outputText value="Téléphone" /><h:outputText value="11223344" />
+	    			<h:outputText value="Boite postale" /><h:outputText value="BP Abidjan" />
+	    			<h:outputText value="Fonction" /><h:outputText value="Sous-Directeur" />
+	    			<h:outputText value="Services" /><h:outputText value="Elaboration,Exécution" />
+	    			<h:outputText value="Roles" /><h:outputText value="Directeur" />
+	    			<h:outputText value="Status" />
+	    			<p:outputPanel>
+	    				<p:selectOneRadio binding="#{status01}">
+	    					<f:selectItem itemLabel="Accepter" itemValue="true"/>
+	    					<f:selectItem itemLabel="Refuser" itemValue="false"/>
+	    					<p:ajax event="change" update="panel01"/>
+	    				</p:selectOneRadio>
+	    			</p:outputPanel>
+	    		</p:panelGrid>
+	    		<p:panelGrid columns="2" id="panel01">
+	    			<h:outputText value="Motif" rendered="#{status01.value!=null and not status01.value}"/>
+	    			<p:inputTextarea rendered="#{status01.value!=null and not status01.value}"/>
+	    			<h:outputText value="Nom d'utilisateur" rendered="#{status01.value!=null and status01.value}"/>
+	    			<h:outputText value="Nom généré par le système" rendered="#{status01.value!=null and status01.value}"/>
+    				<h:outputText value="Mot de passe" rendered="#{status01.value!=null and status01.value}"/>
+	    			<h:outputText value="Mot de passe généré par le système" rendered="#{status01.value!=null and status01.value}"/>
+	    		</p:panelGrid>
+    		</div>
+    	</ui:define>
+    </cyk:page>
+    
 </html>

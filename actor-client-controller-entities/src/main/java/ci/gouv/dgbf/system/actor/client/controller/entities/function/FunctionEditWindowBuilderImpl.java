@@ -21,6 +21,7 @@ public class FunctionEditWindowBuilderImpl extends AbstractWindowContainerManage
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_CATEGORY);
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_CODE);
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_NAME);
+		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_IS_AUTOMATICALLY_CREATE_USER_ACCOUNT_REQUEST);
 		viewBuilder.addComponentBuilderByObjectByFieldNames(data, Function.PROPERTY_DESCRIPTION);
 	}
 

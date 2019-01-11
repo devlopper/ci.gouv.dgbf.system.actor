@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:cyk="http://primefaces.jsf.web.utility.cyk.org">
+	
+    <cyk:page value="#{userAccountsRequestProcessPage}">
+    	<ui:define name="centerCenter">
+    		<div class="ui-g-12">
+	    		<p:panelGrid columns="2">
+	    			<h:outputText value="Services" /><h:outputText value="Elaboration,Exécution" />
+	    			<h:outputText value="Roles" /><h:outputText value="Directeur,Assistant" />
+	    			<h:outputText value="Lettre" />
+	    			<h:outputText>
+	    				L1<br/>
+	    				L2
+	    			</h:outputText>
+	    		</p:panelGrid>
+    		</div>
+    		
+    		<div class="ui-g-12">
+    			<p:tabView>
+	    			<p:tab title="Konan Gérard">
+	    				<p:panelGrid columns="2">
+			    			<h:outputText value="Nom" /><h:outputText value="Konan" />
+			    			<h:outputText value="Prénoms" /><h:outputText value="Gérard" />
+			    			<h:outputText value="Sexe" /><h:outputText value="Masculin" />
+			    			<h:outputText value="Email" /><h:outputText value="konan@mail.com" />
+			    			<h:outputText value="Téléphone" /><h:outputText value="11223344" />
+			    			<h:outputText value="Boite postale" /><h:outputText value="BP Abidjan" />
+			    			<h:outputText value="Fonction" /><h:outputText value="Sous-Directeur" />
+			    			<h:outputText value="Status" />
+			    			<p:outputPanel>
+			    				<p:selectOneRadio binding="#{status01}">
+			    					<f:selectItem itemLabel="Accepter" itemValue="true"/>
+			    					<f:selectItem itemLabel="Refuser" itemValue="false"/>
+			    					<p:ajax event="change" update="panel01"/>
+			    				</p:selectOneRadio>
+			    			</p:outputPanel>
+			    		</p:panelGrid>
+			    		<p:panelGrid columns="2" id="panel01">
+			    			<h:outputText value="Motif" rendered="#{status01.value!=null and not status01.value}"/>
+			    			<p:inputTextarea rendered="#{status01.value!=null and not status01.value}"/>
+			    			<h:outputText value="Services" rendered="#{status01.value!=null and status01.value}"/>
+			    			<p:selectManyCheckbox rendered="#{status01.value!=null and status01.value}">
+		    					<f:selectItem itemLabel="Elaboration" itemValue="EL"/>
+		    					<f:selectItem itemLabel="Execution" itemValue="EX"/>
+		    				</p:selectManyCheckbox>
+		    				<h:outputText value="Profiles" rendered="#{status01.value!=null and status01.value}"/>
+		    				<p:selectManyCheckbox rendered="#{status01.value!=null and status01.value}">
+		    					<f:selectItem itemLabel="Chargé d'étude" itemValue="p1"/>
+		    					<f:selectItem itemLabel="Directeur" itemValue="p2"/>
+		    					<f:selectItem itemLabel="Assistant" itemValue="p3"/>
+		    				</p:selectManyCheckbox>
+			    		</p:panelGrid>
+			    		
+	    			</p:tab>
+	    			<p:tab title="Adou Yves">
+	    				<p:panelGrid columns="2">
+			    			<h:outputText value="Nom" /><h:outputText value="Adou" />
+			    			<h:outputText value="Prénoms" /><h:outputText value="Yves" />
+			    			<h:outputText value="Sexe" /><h:outputText value="Masculin" />
+			    			<h:outputText value="Email" /><h:outputText value="adou@mail.com" />
+			    			<h:outputText value="Téléphone" /><h:outputText value="77889944" />
+			    			<h:outputText value="Boite postale" /><h:outputText value="BP Bouake" />
+			    			<h:outputText value="Fonction" /><h:outputText value="Chargé d'études" />
+			    			<h:outputText value="Status" />
+			    			<p:outputPanel>
+			    				<p:selectOneRadio binding="#{status02}">
+			    					<f:selectItem itemLabel="Accepter" itemValue="true"/>
+			    					<f:selectItem itemLabel="Refuser" itemValue="false"/>
+			    					<p:ajax event="change" update="panel02"/>
+			    				</p:selectOneRadio>
+			    			</p:outputPanel>
+			    		</p:panelGrid>
+			    		<p:panelGrid columns="2" id="panel02">
+			    			<h:outputText value="Motif" rendered="#{status02.value!=null and not status02.value}"/>
+			    			<p:inputTextarea rendered="#{status02.value!=null and not status02.value}"/>
+			    			<h:outputText value="Services" rendered="#{status02.value!=null and status02.value}"/>
+			    			<p:selectManyCheckbox rendered="#{status02.value!=null and status02.value}">
+		    					<f:selectItem itemLabel="Elaboration" itemValue="EL"/>
+		    					<f:selectItem itemLabel="Execution" itemValue="EX"/>
+		    				</p:selectManyCheckbox>
+		    				<h:outputText value="Profiles" rendered="#{status02.value!=null and status02.value}"/>
+		    				<p:selectManyCheckbox rendered="#{status02.value!=null and status02.value}">
+		    					<f:selectItem itemLabel="Chargé d'étude" itemValue="p1"/>
+		    					<f:selectItem itemLabel="Directeur" itemValue="p2"/>
+		    					<f:selectItem itemLabel="Assistant" itemValue="p3"/>
+		    				</p:selectManyCheckbox>
+			    		</p:panelGrid>
+	    			</p:tab>
+	    		</p:tabView>
+    		</div>
+    	</ui:define>
+    </cyk:page>
+    
+</html>

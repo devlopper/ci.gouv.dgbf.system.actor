@@ -3,7 +3,6 @@ package ci.gouv.dgbf.system.actor.client.controller.entities.person;
 import org.cyk.utility.client.controller.data.Data;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.employer.Employer;
-import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 
 public interface Person extends Data {
 
@@ -39,8 +38,8 @@ public interface Person extends Data {
 	String getEmployeeIdentifier();
 	Person setEmployeeIdentifier(String employeeIdentifier);
 	
-	Function getFunction();
-	Person setFunction(Function function);
+	String getFunction();
+	Person setFunction(String function);
 	
 	Person getHierarchy();
 	Person setHierarchy(Person hierarchy);

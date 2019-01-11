@@ -59,8 +59,38 @@
 		-->
 		
 		<navigation-case>
-			<from-outcome>userAccountRequestEditView</from-outcome>
-			<to-view-id>/public/user/account/request/edit.jsf</to-view-id>
+			<from-outcome>userAccountsRequestCreateByNotConnectedUserView</from-outcome>
+			<to-view-id>/public/user/accounts/request/create.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountsRequestSelectByCodeView</from-outcome>
+			<to-view-id>/public/user/accounts/request/select.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountsRequestReadByNotConnectedUserView</from-outcome>
+			<to-view-id>/public/user/accounts/request/read.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountsRequestCreateByConnectedUserView</from-outcome>
+			<to-view-id>/private/user/accounts/request/edit.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountsRequestProcessView</from-outcome>
+			<to-view-id>/private/user/accounts/request/process.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountRequestProcessView</from-outcome>
+			<to-view-id>/private/user/account/request/process.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

@@ -8,6 +8,7 @@ import org.cyk.utility.client.controller.component.annotation.Input;
 import org.cyk.utility.client.controller.component.annotation.InputChoice;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceOneCombo;
+import org.cyk.utility.client.controller.component.annotation.InputChoiceOneRadio;
 import org.cyk.utility.client.controller.component.annotation.InputString;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineMany;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
@@ -15,7 +16,6 @@ import org.cyk.utility.client.controller.data.AbstractDataImpl;
 import org.cyk.utility.string.StringHelper;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.employer.Employer;
-import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 
 public class PersonImpl extends AbstractDataImpl implements Person,Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +26,7 @@ public class PersonImpl extends AbstractDataImpl implements Person,Serializable 
 	@Input @InputString @InputStringLineOne @NotNull
 	private String lastNames;
 	
-	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo @NotNull
+	@Input @InputChoice @InputChoiceOne @InputChoiceOneRadio @NotNull
 	private Sex sex;
 	
 	@Input @InputString @InputStringLineMany @NotNull
@@ -47,8 +47,8 @@ public class PersonImpl extends AbstractDataImpl implements Person,Serializable 
 	@Input @InputString @InputStringLineOne @NotNull
 	private String employeeIdentifier;
 	
-	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo @NotNull
-	private Function function;
+	@Input @InputString @InputStringLineOne @NotNull
+	private String function;
 	
 	@Input @InputChoice @InputChoiceOne @InputChoiceOneCombo @NotNull
 	private Person hierarchy;
@@ -126,12 +126,12 @@ public class PersonImpl extends AbstractDataImpl implements Person,Serializable 
 	}
 
 	@Override
-	public Function getFunction() {
+	public String getFunction() {
 		return function;
 	}
 
 	@Override
-	public Person setFunction(Function function) {
+	public Person setFunction(String function) {
 		this.function = function;
 		return this;
 	}
