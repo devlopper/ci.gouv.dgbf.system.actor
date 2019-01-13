@@ -38,6 +38,9 @@ public interface Person extends Data {
 	String getEmployeeIdentifier();
 	Person setEmployeeIdentifier(String employeeIdentifier);
 	
+	String getAdministrativeUnit();
+	Person setAdministrativeUnit(String administrativeUnit);
+	
 	String getFunction();
 	Person setFunction(String function);
 	
@@ -58,5 +61,6 @@ public interface Person extends Data {
 	String PROPERTY_EMPLOYEE_IDENTIFIER = "employeeIdentifier";
 	String PROPERTY_FUNCTION = "function";
 	String PROPERTY_HIERARCHY = "hierarchy";
+	String PROPERTY_ADMINISTRATIVE_UNIT = "administrativeUnit";
 	
 }

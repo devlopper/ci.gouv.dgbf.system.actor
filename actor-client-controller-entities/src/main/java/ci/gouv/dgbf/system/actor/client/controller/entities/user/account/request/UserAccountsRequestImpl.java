@@ -13,6 +13,7 @@ import org.cyk.utility.client.controller.component.annotation.InputChoiceManyChe
 import org.cyk.utility.client.controller.component.annotation.InputChoiceOne;
 import org.cyk.utility.client.controller.component.annotation.InputChoiceOneRadio;
 import org.cyk.utility.client.controller.component.annotation.InputString;
+import org.cyk.utility.client.controller.component.annotation.InputStringEditor;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineMany;
 import org.cyk.utility.client.controller.component.annotation.InputStringLineOne;
 import org.cyk.utility.client.controller.data.AbstractDataImpl;
@@ -39,7 +40,7 @@ public class UserAccountsRequestImpl extends AbstractDataImpl implements UserAcc
 	@Input @InputString @InputStringLineMany @NotNull
 	private String comments;
 	
-	@Input @InputString @InputStringLineMany @NotNull
+	@Input @InputString @InputStringEditor @NotNull
 	private String letter;
 	
 	@Input @InputString @InputStringLineOne @NotNull

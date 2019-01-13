@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 import org.cyk.utility.__kernel__.AbstractApplicationScopeLifeCycleListener;
 import org.cyk.utility.__kernel__.function.FunctionRunnableMap;
+import org.cyk.utility.client.controller.application.Application;
 import org.cyk.utility.client.controller.component.menu.MenuBuilderMapGetterImpl;
 import org.cyk.utility.client.controller.component.theme.ThemeClassGetterImpl;
 import org.cyk.utility.identifier.resource.UniformResourceIdentifierParameterValueMatrix;
@@ -37,6 +38,8 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Person.class);
 		
 		__inject__(StringRepositoryResourceBundle.class).addBundle("ci.gouv.dgbf.system.actor.client.controller.entities.message");
+		
+		__inject__(Application.class).setName("SIB | Gestion des acteurs");
 		
 	}
 	

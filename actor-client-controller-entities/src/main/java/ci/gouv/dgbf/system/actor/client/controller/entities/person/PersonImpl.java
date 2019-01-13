@@ -26,6 +26,9 @@ public class PersonImpl extends AbstractDataImpl implements Person,Serializable 
 	@Input @InputString @InputStringLineOne @NotNull
 	private String lastNames;
 	
+	@Input @InputString @InputStringLineOne @NotNull
+	private String administrativeUnit;
+	
 	@Input @InputChoice @InputChoiceOne @InputChoiceOneRadio @NotNull
 	private Sex sex;
 	
@@ -188,6 +191,17 @@ public class PersonImpl extends AbstractDataImpl implements Person,Serializable 
 	@Override
 	public Person setPostalBoxAddress(String postalBoxAddress) {
 		this.postalBoxAddress = postalBoxAddress;
+		return this;
+	}
+	
+	@Override
+	public String getAdministrativeUnit() {
+		return administrativeUnit;
+	}
+	
+	@Override
+	public Person setAdministrativeUnit(String administrativeUnit) {
+		this.administrativeUnit = administrativeUnit;
 		return this;
 	}
 	
