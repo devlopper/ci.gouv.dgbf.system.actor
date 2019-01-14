@@ -15,8 +15,8 @@ import org.cyk.utility.system.action.SystemActionCreate;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.PersonReadRow;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequestEditWindowBuilder;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequestEditWindowBuilder;
 
 public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowContainerManagedWindowBuilderEditDataImpl implements UserAccountsRequestEditWindowBuilder, Serializable {
 	private static final long serialVersionUID = 1L;
@@ -52,13 +52,12 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 	}
 	
 	protected void __executeSessionUserIsNull__(Form form,SystemAction systemAction,Data data,ViewBuilder viewBuilder) {
-		if(((UserAccountsRequest)data).getPerson() == null) {
+		if(((UserAccountsRequest)data).getPerson() == null)
 			((UserAccountsRequest)data).setPerson(__inject__(Person.class));
-			((UserAccountsRequest)data).getPerson().setHierarchy(__inject__(Person.class));
-		}
 		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FIRST_NAME);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_LAST_NAMES);
+		/*
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_SEX);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ADMINISTRATIVE_UNIT);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FUNCTION);
@@ -69,6 +68,7 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_SERVICES);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
+		*/
 	}
 
 }

@@ -18,7 +18,7 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.UserAccount;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequest;
 
 @ApplicationScoped
 public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeLifeCycleListener implements Serializable {

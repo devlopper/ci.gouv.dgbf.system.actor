@@ -8,7 +8,7 @@ import javax.inject.Named;
 import org.cyk.utility.client.controller.component.window.WindowContainerManagedWindowBuilder;
 import org.cyk.utility.client.controller.web.jsf.primefaces.AbstractPageContainerManagedImpl;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequestProcessWindowBuilder;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequestProcessWindowBuilder;
 
 @Named @ViewScoped
 public class UserAccountsRequestProcessPage extends AbstractPageContainerManagedImpl implements Serializable {
