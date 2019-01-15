@@ -16,7 +16,7 @@ import org.cyk.utility.system.action.SystemActionCreate;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
 
 public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRunnableImpl<MenuBuilderMapGetter> implements Serializable {
 	private static final long serialVersionUID = 1L;

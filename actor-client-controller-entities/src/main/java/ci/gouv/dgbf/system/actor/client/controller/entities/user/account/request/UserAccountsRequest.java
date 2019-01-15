@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request;
+package ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request;
 
 import java.util.Collection;
 import java.util.Date;

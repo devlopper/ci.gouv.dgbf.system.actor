@@ -15,8 +15,8 @@ import org.cyk.utility.system.action.SystemActionCreate;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.PersonReadRow;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequest;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequestEditWindowBuilder;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequestEditWindowBuilder;
 
 public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowContainerManagedWindowBuilderEditDataImpl implements UserAccountsRequestEditWindowBuilder, Serializable {
 	private static final long serialVersionUID = 1L;

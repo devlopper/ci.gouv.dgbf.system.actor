@@ -8,8 +8,6 @@ import org.cyk.utility.client.controller.data.RowData;
 import org.cyk.utility.system.action.SystemAction;
 import org.cyk.utility.system.action.SystemActionCreate;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequest;
-
 public class UserAccountRequestSelectWindowBuilderImpl extends AbstractWindowContainerManagedWindowBuilderSelectDataImpl implements UserAccountRequestSelectWindowBuilder, Serializable {
 	private static final long serialVersionUID = 1L;
 	

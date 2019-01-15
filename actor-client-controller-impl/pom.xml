@@ -34,5 +34,11 @@
             <type>jar</type>
         </dependency>
 	</dependencies>		
-
+	
+	<profiles>
+		<profile>
+			<id>org.cyk.test</id>
+		</profile>
+	</profiles>	
+	
 </project>

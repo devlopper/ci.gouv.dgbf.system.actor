@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.api.user.accounts.request;
+package ci.gouv.dgbf.system.actor.client.controller.api.user.account.request;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import javax.inject.Singleton;
 
 import org.cyk.utility.client.controller.AbstractControllerEntityImpl;
 
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.accounts.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
 
 @Singleton
 public class UserAccountsRequestControllerImpl extends AbstractControllerEntityImpl<UserAccountsRequest> implements UserAccountsRequestController,Serializable {
