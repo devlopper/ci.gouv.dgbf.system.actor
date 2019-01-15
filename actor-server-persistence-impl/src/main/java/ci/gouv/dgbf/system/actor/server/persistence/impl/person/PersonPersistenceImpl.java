@@ -13,4 +13,9 @@ import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person;
 public class PersonPersistenceImpl extends AbstractPersistenceEntityImpl<Person> implements PersonPersistence,Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	public Class<Person> getEntityClass() {
+		return Person.class;
+	}
+	
 }
