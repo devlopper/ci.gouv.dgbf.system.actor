@@ -11,5 +11,5 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request
 @Singleton
 public class UserAccountsRequestControllerImpl extends AbstractControllerEntityImpl<UserAccountsRequest> implements UserAccountsRequestController,Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 }

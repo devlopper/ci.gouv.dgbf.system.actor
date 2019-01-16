@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
@@ -19,6 +20,9 @@ import lombok.experimental.Accessors;
 public class UserAccountsRequest extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Column(name="letter_")
+	private String letter;
+	
 	@Transient private Collection<Person> persons;
 	
 	@Override

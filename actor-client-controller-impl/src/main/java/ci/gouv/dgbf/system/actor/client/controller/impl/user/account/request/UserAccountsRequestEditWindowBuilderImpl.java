@@ -12,6 +12,7 @@ import org.cyk.utility.client.controller.session.SessionUser;
 import org.cyk.utility.client.controller.session.SessionUserGetter;
 import org.cyk.utility.system.action.SystemAction;
 import org.cyk.utility.system.action.SystemActionCreate;
+import org.cyk.utility.system.action.SystemActionRead;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.PersonReadRow;
@@ -55,8 +56,13 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 		if(((UserAccountsRequest)data).getPerson() == null)
 			((UserAccountsRequest)data).setPerson(__inject__(Person.class));
 		
+		if(systemAction instanceof SystemActionRead) {
+			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_CODE);
+		}
+		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FIRST_NAME);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_LAST_NAMES);
+		
 		/*
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_SEX);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ADMINISTRATIVE_UNIT);
@@ -67,8 +73,9 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_SERVICES);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
-		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
 		*/
+		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
+		
 	}
 
 }

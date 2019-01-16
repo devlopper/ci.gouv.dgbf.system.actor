@@ -60,7 +60,7 @@
 		
 		<navigation-case>
 			<from-outcome>userAccountsRequestCreateByNotConnectedUserView</from-outcome>
-			<to-view-id>/public/user/accounts/request/create.jsf</to-view-id>
+			<to-view-id>/public/user/account/request/create.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		

@@ -3,6 +3,7 @@ package ci.gouv.dgbf.system.actor.server.business.impl.user.account.request;
 import javax.inject.Singleton;
 
 import org.cyk.utility.__kernel__.properties.Properties;
+import org.cyk.utility.random.RandomHelper;
 import org.cyk.utility.server.business.AbstractBusinessEntityImpl;
 import org.cyk.utility.server.business.BusinessServiceProvider;
 
@@ -21,7 +22,9 @@ public class UserAccountsRequestBusinessImpl extends AbstractBusinessEntityImpl<
 	
 	@Override
 	public BusinessServiceProvider<UserAccountsRequest> create(UserAccountsRequest userAccountsRequest, Properties properties) {
-		userAccountsRequest.setCode("uar01");
+		String code = __inject__(RandomHelper.class).getAlphanumeric(3);
+		code = "uar01";
+		userAccountsRequest.setCode(code);
 		return super.create(userAccountsRequest, properties);
 	}
 	
