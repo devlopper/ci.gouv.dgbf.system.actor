@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.api.user.account;
+package ci.gouv.dgbf.system.actor.client.controller.impl.user.account;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -9,6 +9,7 @@ import org.cyk.utility.__kernel__.DependencyInjection;
 import org.cyk.utility.client.controller.AbstractControllerEntityPersistedInCollectionImpl;
 import org.cyk.utility.collection.CollectionHelper;
 
+import ci.gouv.dgbf.system.actor.client.controller.api.user.account.UserAccountController;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.UserAccount;
 
 @Singleton

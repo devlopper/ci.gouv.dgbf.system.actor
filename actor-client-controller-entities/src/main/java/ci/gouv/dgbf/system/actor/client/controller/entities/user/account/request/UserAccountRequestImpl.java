@@ -19,8 +19,8 @@ import org.cyk.utility.client.controller.data.AbstractDataImpl;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.account.Credentials;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
-import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 
 public class UserAccountRequestImpl extends AbstractDataImpl implements UserAccountRequest,Serializable {
 	private static final long serialVersionUID = 1L;

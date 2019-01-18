@@ -1,6 +1,9 @@
 package ci.gouv.dgbf.system.actor.client.controller.impl.user.account.request;
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
+
+import org.cyk.utility.client.controller.component.ComponentBuilder;
 import org.cyk.utility.client.controller.component.grid.GridBuilder;
 import org.cyk.utility.client.controller.component.grid.column.ColumnBuilder;
 import org.cyk.utility.client.controller.component.view.ViewBuilder;
@@ -28,8 +31,6 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 		if(sessionUser == null) {
 			__executeSessionUserIsNull__(form, systemAction, data, viewBuilder);
 		}else {
-			
-			
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_SERVICES);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
@@ -53,8 +54,12 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 	}
 	
 	protected void __executeSessionUserIsNull__(Form form,SystemAction systemAction,Data data,ViewBuilder viewBuilder) {
-		if(((UserAccountsRequest)data).getPerson() == null)
-			((UserAccountsRequest)data).setPerson(__inject__(Person.class));
+		UserAccountsRequest userAccountsRequest = (UserAccountsRequest) data;
+		if(userAccountsRequest.getPerson() == null) {
+			if(__injectCollectionHelper__().isEmpty(userAccountsRequest.getPersons()))
+				userAccountsRequest.getPersons(Boolean.TRUE).add(__inject__(Person.class));	
+			userAccountsRequest.setPerson(userAccountsRequest.getPersons().getFirst());
+		}
 		
 		if(systemAction instanceof SystemActionRead) {
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_CODE);
@@ -63,17 +68,17 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FIRST_NAME);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_LAST_NAMES);
 		
-		/*
-		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_SEX);
-		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ADMINISTRATIVE_UNIT);
-		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FUNCTION);
+		//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_SEX);
+		//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ADMINISTRATIVE_UNIT);
+		//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FUNCTION);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ELECTRONIC_MAIL_ADDRESS);
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_PHONE_NUMBER);
-		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_POSTAL_BOX_ADDRESS);
+		//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_POSTAL_BOX_ADDRESS);
 		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_SERVICES);
-		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
-		*/
+		ComponentBuilder<?> componentBuilder = viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
+		componentBuilder.getProperties().setRequest(FacesContext.getCurrentInstance().getExternalContext().getRequest());
+		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
 		
 	}

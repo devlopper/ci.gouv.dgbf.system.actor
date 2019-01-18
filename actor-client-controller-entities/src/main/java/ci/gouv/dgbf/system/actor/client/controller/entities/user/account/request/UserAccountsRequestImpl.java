@@ -22,9 +22,9 @@ import org.cyk.utility.collection.CollectionHelper;
 import ci.gouv.dgbf.system.actor.client.controller.entities.account.Credentials;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Persons;
-import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
 import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 
 public class UserAccountsRequestImpl extends AbstractDataImpl implements UserAccountsRequest,Serializable {
 	private static final long serialVersionUID = 1L;

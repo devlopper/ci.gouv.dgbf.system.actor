@@ -8,9 +8,9 @@ import org.cyk.utility.client.controller.data.Data;
 import ci.gouv.dgbf.system.actor.client.controller.entities.account.Credentials;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Persons;
-import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
 import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 
 public interface UserAccountsRequest extends Data {
 

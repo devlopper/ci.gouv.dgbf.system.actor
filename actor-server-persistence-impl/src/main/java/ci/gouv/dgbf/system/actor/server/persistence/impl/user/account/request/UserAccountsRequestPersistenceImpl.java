@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.server.persistence.impl.user.account.person;
+package ci.gouv.dgbf.system.actor.server.persistence.impl.user.account.request;
 
 import java.io.Serializable;
 

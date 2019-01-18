@@ -6,8 +6,11 @@
 	<persistence-unit name="persistenceUnit">
 		<jta-data-source>java:global/actor/server/dataSource</jta-data-source>
 		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person</class>
+		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Role</class>
 		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequest</class>
 		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestPerson</class>
+		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestRole</class>
+		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestService</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />

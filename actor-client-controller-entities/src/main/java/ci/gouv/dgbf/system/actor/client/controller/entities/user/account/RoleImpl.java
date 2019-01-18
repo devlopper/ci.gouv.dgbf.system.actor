@@ -1,4 +1,4 @@
-package ci.gouv.dgbf.system.actor.client.controller.entities.role;
+package ci.gouv.dgbf.system.actor.client.controller.entities.user.account;
 
 import java.io.Serializable;
 
@@ -52,6 +52,6 @@ public class RoleImpl extends AbstractDataImpl implements Role,Serializable {
 
 	@Override
 	public String toString() {
-		return name;
+		return getName();
 	}
 }

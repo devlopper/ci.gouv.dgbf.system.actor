@@ -10,12 +10,13 @@ import org.cyk.utility.client.controller.application.Application;
 import org.cyk.utility.client.controller.component.menu.MenuBuilderMapGetterImpl;
 import org.cyk.utility.client.controller.component.theme.ThemeClassGetterImpl;
 import org.cyk.utility.identifier.resource.UniformResourceIdentifierParameterValueMatrix;
+import org.cyk.utility.instance.InstanceBuilderImpl;
 import org.cyk.utility.string.repository.StringRepositoryResourceBundle;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
-import ci.gouv.dgbf.system.actor.client.controller.entities.role.Role;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.UserAccount;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
@@ -26,8 +27,9 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 
 	@Override
 	public void __initialize__(Object object) {
-		__inject__(FunctionRunnableMap.class).set(MenuBuilderMapGetterImpl.class, MenuBuilderMapGetterFunctionRunnableImpl.class,Boolean.TRUE);
-		__inject__(FunctionRunnableMap.class).set(ThemeClassGetterImpl.class, ThemeClassGetterFunctionRunnableImpl.class,Boolean.TRUE);
+		__inject__(FunctionRunnableMap.class).set(MenuBuilderMapGetterImpl.class, MenuBuilderMapGetterFunctionRunnableImpl.class,2);
+		__inject__(FunctionRunnableMap.class).set(ThemeClassGetterImpl.class, ThemeClassGetterFunctionRunnableImpl.class,2);
+		__inject__(FunctionRunnableMap.class).set(InstanceBuilderImpl.class, InstanceBuilderFunctionRunnableImpl.class,2);
 		
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Role.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(FunctionCategory.class);

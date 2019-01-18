@@ -15,8 +15,8 @@ public class UserAccountsRequestPersonFunctionIntegrationTest extends AbstractBu
 	
 	/* Create */
 	
-	@Test
-	public void createOnePerson() throws Exception{
+	//@Test
+	public void createOneUserAccountsRequestPersonWithPersonExist() throws Exception{
 		Person person = new Person().setCode("p01");
 		__inject__(PersonBusiness.class).create(person);
 		UserAccountsRequest userAccountsRequest = new UserAccountsRequest().setCode("uar01");
@@ -25,4 +25,11 @@ public class UserAccountsRequestPersonFunctionIntegrationTest extends AbstractBu
 	}
 	
 
+	@Test
+	public void createOneUserAccountsRequestPersonWithPersonNotExist() throws Exception{
+		Person person = new Person().setCode("p01");
+		UserAccountsRequest userAccountsRequest = new UserAccountsRequest().setCode("uar01");
+		__inject__(UserAccountsRequestBusiness.class).create(userAccountsRequest);
+		__inject__(TestBusinessCreate.class).addObjects(new UserAccountsRequestPerson().setCode("a").setUserAccountsRequest(userAccountsRequest).setPerson(person)).execute();
+	}
 }
