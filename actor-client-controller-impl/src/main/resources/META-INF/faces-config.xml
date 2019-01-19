@@ -7,56 +7,6 @@
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
-		<!--
-		<navigation-case>
-			<from-outcome>functionCategoryListView</from-outcome>
-			<to-view-id>/private/function/category/list.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>functionCategoryEditView</from-outcome>
-			<to-view-id>/private/function/category/edit.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>functionCategoryConsultView</from-outcome>
-			<to-view-id>/private/function/category/consult.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>functionListView</from-outcome>
-			<to-view-id>/private/function/list.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>functionEditView</from-outcome>
-			<to-view-id>/private/function/edit.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>functionConsultView</from-outcome>
-			<to-view-id>/private/function/consult.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		-->
-		<!--
-		<navigation-case>
-			<from-outcome>userAccountRequestListView</from-outcome>
-			<to-view-id>/private/user/account/request/list.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>userAccountRequestProcessView</from-outcome>
-			<to-view-id>/private/user/account/request/process.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		-->
 		
 		<navigation-case>
 			<from-outcome>userAccountsRequestCreateByNotConnectedUserView</from-outcome>
@@ -65,14 +15,20 @@
 		</navigation-case>
 		
 		<navigation-case>
-			<from-outcome>userAccountsRequestSelectByCodeView</from-outcome>
-			<to-view-id>/public/user/accounts/request/select.jsf</to-view-id>
+			<from-outcome>userAccountsRequestFindByNotConnectedUserView</from-outcome>
+			<to-view-id>/public/user/account/request/find.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>userAccountsRequestReadByNotConnectedUserView</from-outcome>
-			<to-view-id>/public/user/accounts/request/read.jsf</to-view-id>
+			<to-view-id>/public/user/account/request/read.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>userAccountsRequestSelectByCodeView</from-outcome>
+			<to-view-id>/public/user/accounts/request/select.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		

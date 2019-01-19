@@ -30,7 +30,7 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 				if(principal == null) {
 					menuBuilder.addItems(
 							__inject__(MenuItemBuilder.class).setCommandableName("Demander un compte utilisateur").setCommandableNavigationIdentifier("userAccountsRequestCreateByNotConnectedUserView")
-							,__inject__(MenuItemBuilder.class).setCommandableName("Accéder à une demande de compte utilisateur").setCommandableNavigationIdentifier("userAccountsRequestSelectByCodeView")
+							,__inject__(MenuItemBuilder.class).setCommandableName("Consulter ma demande de compte utilisateur").setCommandableNavigationIdentifier("userAccountsRequestFindByNotConnectedUserView")
 						);	
 				}else {
 					menuBuilder.addItems(

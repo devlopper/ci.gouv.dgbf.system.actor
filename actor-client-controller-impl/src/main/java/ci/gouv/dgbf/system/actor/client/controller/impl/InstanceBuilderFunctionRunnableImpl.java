@@ -28,6 +28,7 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 		if(source instanceof UserAccountsRequestDto && destination instanceof UserAccountsRequest) {
 			UserAccountsRequestDto representation = (UserAccountsRequestDto) source;
 			UserAccountsRequest data = (UserAccountsRequest) destination;
+			data.setIdentifier(representation.getIdentifier());
 			data.setCode(representation.getCode());
 			data.setLetter(representation.getLetter());
 			
