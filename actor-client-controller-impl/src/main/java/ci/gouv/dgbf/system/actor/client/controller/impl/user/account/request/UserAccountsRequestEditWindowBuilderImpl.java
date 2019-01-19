@@ -1,9 +1,6 @@
 package ci.gouv.dgbf.system.actor.client.controller.impl.user.account.request;
 import java.io.Serializable;
 
-import javax.faces.context.FacesContext;
-
-import org.cyk.utility.client.controller.component.ComponentBuilder;
 import org.cyk.utility.client.controller.component.grid.GridBuilder;
 import org.cyk.utility.client.controller.component.grid.column.ColumnBuilder;
 import org.cyk.utility.client.controller.component.view.ViewBuilder;
@@ -76,8 +73,7 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 		//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_POSTAL_BOX_ADDRESS);
 		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_SERVICES);
-		ComponentBuilder<?> componentBuilder = viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
-		componentBuilder.getProperties().setRequest(FacesContext.getCurrentInstance().getExternalContext().getRequest());
+		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
 		
 		viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
 		

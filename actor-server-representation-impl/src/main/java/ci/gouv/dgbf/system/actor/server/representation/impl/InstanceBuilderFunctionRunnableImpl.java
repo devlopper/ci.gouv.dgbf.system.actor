@@ -21,7 +21,6 @@ import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.reques
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestService;
 import ci.gouv.dgbf.system.actor.server.representation.entities.person.PersonDto;
 import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.RoleDto;
-import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.ServiceDto;
 import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountsRequestDto;
 
 public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilderFunctionRunnableImpl implements Serializable {
@@ -57,8 +56,8 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			
 			if(__inject__(CollectionHelper.class).isNotEmpty(representation.getServices())) {
 				persistence.setServices(null);
-				for(ServiceDto index : representation.getServices()) {
-					persistence.getServices(Boolean.TRUE).add(index.getCode());	
+				for(String index : representation.getServices()) {
+					persistence.getServices(Boolean.TRUE).add(index);	
 				}
 			}
 		}else if(source instanceof UserAccountsRequest && destination instanceof UserAccountsRequestDto) {
@@ -87,13 +86,8 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			Collection<UserAccountsRequestService> userAccountsRequestServices = __inject__(UserAccountsRequestServicePersistence.class).readByUserAccountsRequest(persistence);
 			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountsRequestServices)) {
 				representation.setServices(new ArrayList<>());
-				for(UserAccountsRequestService index : userAccountsRequestServices) {
-					ServiceDto dto = new ServiceDto();
-					dto.setCode(index.getService());
-					dto.setName("NAME OF "+dto.getCode());
-					//TODO find other related infos with the Service API
-					representation.getServices().add(dto);
-				}
+				for(UserAccountsRequestService index : userAccountsRequestServices)
+					representation.getServices().add(index.getService());
 			}
 		}else
 			super.__copy__(source, destination);

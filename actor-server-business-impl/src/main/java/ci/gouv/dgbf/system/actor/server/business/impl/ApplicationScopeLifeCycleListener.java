@@ -7,7 +7,11 @@ import org.cyk.utility.__kernel__.AbstractApplicationScopeLifeCycleListener;
 import org.cyk.utility.collection.CollectionHelper;
 
 import ci.gouv.dgbf.system.actor.server.business.api.user.account.RoleBusiness;
+import ci.gouv.dgbf.system.actor.server.business.api.user.account.request.UserAccountsRequestBusiness;
+import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.RolePersistence;
+import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Role;
+import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequest;
 
 @ApplicationScoped
 public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeLifeCycleListener implements Serializable {
@@ -35,6 +39,13 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 				,new Role().setCode("CB").setName("Contrôleur budgétaire")
 				,new Role().setCode("CA").setName("Comptable Assignataire")
 				));
+		
+		UserAccountsRequest userAccountsRequest = new UserAccountsRequest();
+		userAccountsRequest.addPersons(new Person().setFirstName("Komenan").setLastNames("Yao Christian").setElectronicMailAddress("kom@mail.com").setPhoneNumber("0123"));
+		userAccountsRequest.addRoles(__inject__(RolePersistence.class).readByCode("ADMINISTRATEUR"),__inject__(RolePersistence.class).readByCode("CHARGE_ETUDE"));
+		userAccountsRequest.addServices("ELB");
+		userAccountsRequest.setLetter("Ma lettre");
+		__inject__(UserAccountsRequestBusiness.class).create(userAccountsRequest);
 	}
 	
 	@Override

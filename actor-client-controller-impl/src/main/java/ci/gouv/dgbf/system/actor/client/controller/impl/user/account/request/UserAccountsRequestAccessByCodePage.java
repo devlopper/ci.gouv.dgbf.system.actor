@@ -35,6 +35,7 @@ public class UserAccountsRequestAccessByCodePage extends AbstractPageContainerMa
 		return windowBuilder;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void submit() {
 		__renderMessageError__("La demande de compte utilisateur avec pour numéro <<"+code+">> n'existe pas");
 	}

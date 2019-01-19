@@ -6,7 +6,6 @@ import java.util.Collection;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
 
 import org.cyk.utility.collection.CollectionHelper;
 import org.cyk.utility.server.representation.AbstractEntityFromPersistenceEntity;
@@ -19,13 +18,12 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @XmlRootElement @Getter @Setter @Accessors(chain=true) @NoArgsConstructor
-@XmlSeeAlso(RoleDto.class)
 public class UserAccountsRequestDto extends AbstractEntityFromPersistenceEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String letter;
 	private Collection<RoleDto> roles;
-	private Collection<ServiceDto> services;
+	private Collection<String> services;
 	private Collection<PersonDto> persons;
 	
 	@XmlElement(name="roles")
@@ -60,7 +58,7 @@ public class UserAccountsRequestDto extends AbstractEntityFromPersistenceEntity 
 	}
 	
 	@XmlElement(name="services")
-	public Collection<ServiceDto> getServices(){
+	public Collection<String> getServices(){
 		return services;
 	}
 	
@@ -69,7 +67,7 @@ public class UserAccountsRequestDto extends AbstractEntityFromPersistenceEntity 
 			if(services == null)
 				services = new ArrayList<>();
 			for(String index : codes)
-				services.add(new ServiceDto().setCode(index));
+				services.add(index);
 		}
 		return this;
 	}
