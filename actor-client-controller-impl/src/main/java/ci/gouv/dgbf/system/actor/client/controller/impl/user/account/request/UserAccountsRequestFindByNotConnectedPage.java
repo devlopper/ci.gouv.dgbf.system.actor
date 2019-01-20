@@ -12,9 +12,13 @@ import org.cyk.utility.client.controller.component.window.WindowContainerManaged
 import org.cyk.utility.client.controller.navigation.NavigationIdentifierToUrlStringMapper;
 import org.cyk.utility.client.controller.web.jsf.primefaces.AbstractPageContainerManagedImpl;
 import org.cyk.utility.system.action.SystemAction;
+import org.cyk.utility.system.action.SystemActionCreate;
+import org.cyk.utility.system.action.SystemActionFind;
 import org.cyk.utility.system.action.SystemActionOpen;
+import org.cyk.utility.system.action.SystemActionRedirect;
 
 import ci.gouv.dgbf.system.actor.client.controller.api.user.account.request.UserAccountsRequestController;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequestRedirectWindowBuilderOLD;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,15 +31,26 @@ public class UserAccountsRequestFindByNotConnectedPage extends AbstractPageConta
 	
 	@Override
 	protected WindowContainerManagedWindowBuilder __getWindowContainerManagedWindowBuilder__() {
-		SystemAction systemAction = __inject__(SystemActionOpen.class);
+		SystemAction systemAction = __inject__(SystemActionRedirect.class);
 		systemAction.setEntityClass(UserAccountsRequest.class);
-		
 		WindowContainerManagedWindowBuilder windowContainerManagedWindowBuilder = __inject__(WindowContainerManagedWindowBuilderGetter.class)
 				.setSystemAction(systemAction).execute().getOutput();
-		windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).setTitleValue("Ouvrir une demande de compte utilisateur");
+		windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).setTitleValue("Consulter une demande de compte utilisateur");
 		return windowContainerManagedWindowBuilder;
 	}
 	
+	/*
+	@Override
+	protected WindowContainerManagedWindowBuilder __getWindowContainerManagedWindowBuilder__() {
+		SystemAction systemAction = __inject__(SystemActionRedirect.class);
+		systemAction.setEntityClass(UserAccountsRequest.class);
+		
+		WindowContainerManagedWindowBuilder windowContainerManagedWindowBuilder = __inject__(UserAccountRequestRedirectWindowBuilderOLD.class)
+				.setSystemAction(systemAction);
+		windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).setTitleValue("Consulter une demande de compte utilisateur");
+		return windowContainerManagedWindowBuilder;
+	}
+	*/
 	public void find() {
 		UserAccountsRequest userAccountsRequest = null;
 		try {

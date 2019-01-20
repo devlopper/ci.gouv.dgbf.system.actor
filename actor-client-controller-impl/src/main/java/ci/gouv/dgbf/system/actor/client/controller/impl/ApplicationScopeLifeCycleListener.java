@@ -9,6 +9,7 @@ import org.cyk.utility.__kernel__.function.FunctionRunnableMap;
 import org.cyk.utility.client.controller.application.Application;
 import org.cyk.utility.client.controller.component.menu.MenuBuilderMapGetterImpl;
 import org.cyk.utility.client.controller.component.theme.ThemeClassGetterImpl;
+import org.cyk.utility.client.controller.navigation.NavigationIdentifierStringBuilderExtensionImpl;
 import org.cyk.utility.identifier.resource.UniformResourceIdentifierParameterValueMatrix;
 import org.cyk.utility.instance.InstanceBuilderImpl;
 import org.cyk.utility.string.repository.StringRepositoryResourceBundle;
@@ -30,6 +31,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		__inject__(FunctionRunnableMap.class).set(MenuBuilderMapGetterImpl.class, MenuBuilderMapGetterFunctionRunnableImpl.class,2);
 		__inject__(FunctionRunnableMap.class).set(ThemeClassGetterImpl.class, ThemeClassGetterFunctionRunnableImpl.class,2);
 		__inject__(FunctionRunnableMap.class).set(InstanceBuilderImpl.class, InstanceBuilderFunctionRunnableImpl.class,2);
+		__inject__(FunctionRunnableMap.class).set(NavigationIdentifierStringBuilderExtensionImpl.class, NavigationIdentifierStringBuilderExtensionFunctionRunnableImpl.class,2);
 		
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Role.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(FunctionCategory.class);
