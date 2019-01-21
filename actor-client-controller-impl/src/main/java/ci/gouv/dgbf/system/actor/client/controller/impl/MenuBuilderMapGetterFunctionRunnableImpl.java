@@ -15,7 +15,6 @@ import org.cyk.utility.system.action.SystemActionCreate;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
 
 public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRunnableImpl<MenuBuilderMapGetter> implements Serializable {
@@ -40,7 +39,7 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 							//,__inject__(MenuItemBuilder.class).setCommandableName("Identification")
 							,__inject__(MenuItemBuilder.class).setCommandableName("Compte utilisateur")
 								.addEntitySelect(UserAccountsRequest.class).getLastChild().setCommandableName("Traitements des demandes de compte utilisateur").getParent()
-								.addEntitySelect(UserAccountRequest.class,"createuseraccount").getLastChild().setCommandableName("Création de compte utilisateur").getParent()
+								.addEntitySelect(UserAccountsRequest.class,"createuseraccount").getLastChild().setCommandableName("Création de compte utilisateur").getParent()
 								//.addEntitiesCreate(UserAccount.class).getLastChild().setCommandableName("Création de compte utilisateur").getParent()
 							,__inject__(MenuItemBuilder.class).setCommandableName("Administration")
 								.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Validation de compte utilisateur")

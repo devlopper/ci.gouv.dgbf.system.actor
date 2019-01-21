@@ -19,7 +19,6 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCat
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.UserAccount;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
 
 @ApplicationScoped
@@ -36,7 +35,6 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Role.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(FunctionCategory.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Function.class);
-		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccountRequest.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccountsRequest.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccount.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Person.class);

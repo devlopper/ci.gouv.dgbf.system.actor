@@ -77,12 +77,12 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FUNCTION);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ELECTRONIC_MAIL_ADDRESS);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_PHONE_NUMBER);
-			//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_POSTAL_BOX_ADDRESS);
 			
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_SERVICES);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_ROLES);
 			
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
+			
 		}else if(systemAction instanceof SystemActionRedirect) {
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_CODE);
 		}	

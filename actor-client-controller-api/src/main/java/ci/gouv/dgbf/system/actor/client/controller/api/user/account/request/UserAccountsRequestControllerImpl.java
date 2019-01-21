@@ -7,8 +7,8 @@ import javax.inject.Singleton;
 import org.cyk.utility.__kernel__.properties.Properties;
 import org.cyk.utility.client.controller.AbstractControllerEntityImpl;
 import org.cyk.utility.client.controller.ControllerServiceProvider;
-import org.cyk.utility.client.controller.message.MessageRender;
 import org.cyk.utility.notification.NotificationBuilder;
+import org.cyk.utility.notification.NotificationBuilders;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
 
@@ -18,10 +18,9 @@ public class UserAccountsRequestControllerImpl extends AbstractControllerEntityI
 
 	@Override
 	public ControllerServiceProvider<UserAccountsRequest> create(UserAccountsRequest object, Properties properties) {
-		super.create(object, properties);
-		__inject__(MessageRender.class).addNotificationBuilders(__inject__(NotificationBuilder.class).setSummary("Veuillez consulter votre boite électronique"
-				+ " pour récuperer le code de votre demande.")).execute();
-		return this;
+		properties.setNotificationBuilders(__inject__(NotificationBuilders.class).add(__inject__(NotificationBuilder.class)
+				.setSummary("Veuillez consulter votre boite électronique pour récuperer le code de votre demande.")));
+		return super.create(object, properties);
 	}
 	
 }

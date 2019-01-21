@@ -41,11 +41,12 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 				));
 		
 		UserAccountsRequest userAccountsRequest = new UserAccountsRequest();
-		userAccountsRequest.addPersons(new Person().setFirstName("Komenan").setLastNames("Yao Christian").setElectronicMailAddress("kom@mail.com").setPhoneNumber("0123"));
+		userAccountsRequest.addPersons(new Person().setFirstName("Komenan").setLastNames("Yao Christian").setElectronicMailAddress("dgbfdtideveloppers@gmail.com").setPhoneNumber("07625658")
+				.setIsMasculine(Boolean.TRUE).setAdministrativeUnit("DGBF").setFunction("Chargé d'études"));
 		userAccountsRequest.addRoles(__inject__(RolePersistence.class).readByCode("ADMINISTRATEUR"),__inject__(RolePersistence.class).readByCode("CHARGE_ETUDE"));
 		userAccountsRequest.addServices("ELB");
 		userAccountsRequest.setLetter("Ma lettre");
-		//__inject__(UserAccountsRequestBusiness.class).create(userAccountsRequest);
+		__inject__(UserAccountsRequestBusiness.class).create(userAccountsRequest);
 		
 	}
 	

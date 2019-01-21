@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
+import org.cyk.utility.client.controller.component.command.CommandableBuilder;
+import org.cyk.utility.client.controller.component.layout.Proportions;
 import org.cyk.utility.client.controller.component.window.WindowContainerManagedWindowBuilder;
 import org.cyk.utility.client.controller.component.window.WindowContainerManagedWindowBuilderGetter;
 import org.cyk.utility.client.controller.web.jsf.primefaces.AbstractPageContainerManagedImpl;
@@ -26,6 +28,11 @@ public class UserAccountsRequestCreateByNotConnectedPage extends AbstractPageCon
 		WindowContainerManagedWindowBuilder windowContainerManagedWindowBuilder = __inject__(WindowContainerManagedWindowBuilderGetter.class)
 				.setSystemAction(systemAction).execute().getOutput();
 		windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).setTitleValue("Demande de compte utilisateur");
+		Proportions proportions = windowContainerManagedWindowBuilder.getView(Boolean.TRUE).getComponentsBuilder(Boolean.TRUE).getLayout(Boolean.TRUE)
+				.getGridRowModel(Boolean.TRUE).getWidthProportions(Boolean.TRUE);
+		proportions.set(0,3,1,6,2,3);
+		CommandableBuilder commandableBuilder = windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).getDialog(Boolean.TRUE).getOkCommandable(Boolean.TRUE);
+		//commandableBuilder.setName("MyOkButton");
 		return windowContainerManagedWindowBuilder;
 	}
 	

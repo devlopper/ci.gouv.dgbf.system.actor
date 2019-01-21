@@ -25,7 +25,7 @@ public class UserAccountsRequestFindByNotConnectedPage extends AbstractPageConta
 		systemAction.setEntityClass(UserAccountsRequest.class);
 		WindowContainerManagedWindowBuilder windowContainerManagedWindowBuilder = __inject__(WindowContainerManagedWindowBuilderGetter.class)
 				.setSystemAction(systemAction).execute().getOutput();
-		windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).setTitleValue("Consulter une demande de compte utilisateur");
+		windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).setTitleValue("Consultation d'une demande de compte utilisateur");
 		return windowContainerManagedWindowBuilder;
 	}
 	
