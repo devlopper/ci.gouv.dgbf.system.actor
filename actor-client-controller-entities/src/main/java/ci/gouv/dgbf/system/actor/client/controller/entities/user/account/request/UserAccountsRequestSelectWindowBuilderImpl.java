@@ -13,7 +13,7 @@ public class UserAccountsRequestSelectWindowBuilderImpl extends AbstractWindowCo
 	protected void __listenPostConstruct__() {
 		super.__listenPostConstruct__();
 		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountsRequest.PROPERTY_CODE
-				,UserAccountsRequest.PROPERTY_DATE,UserAccountsRequest.PROPERTY_NUMBER_OF_PERSON);
+				,UserAccountsRequest.PROPERTY_CREATION_DATE,UserAccountsRequest.PROPERTY_NUMBER_OF_PERSON);
 	}
 	
 	@Override

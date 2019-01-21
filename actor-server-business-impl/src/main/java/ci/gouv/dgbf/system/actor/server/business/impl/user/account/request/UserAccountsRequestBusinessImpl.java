@@ -5,6 +5,11 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.inject.Singleton;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.cyk.utility.__kernel__.properties.Properties;
 import org.cyk.utility.random.RandomHelper;
@@ -68,9 +73,50 @@ public class UserAccountsRequestBusinessImpl extends AbstractBusinessEntityImpl<
 		if(__injectCollectionHelper__().isNotEmpty(persons)) {
 			Collection<UserAccountsRequestPerson> userAccountsRequestPersons = new ArrayList<>();
 			for(Person index : persons.get())
-				if(index!=null)
-					userAccountsRequestPersons.add(new UserAccountsRequestPerson().setUserAccountsRequest(userAccountsRequest).setPerson(index));
+				if(index!=null) {
+					UserAccountsRequestPerson userAccountsRequestPerson = new UserAccountsRequestPerson().setUserAccountsRequest(userAccountsRequest).setPerson(index)
+						.setAdministrativeUnit(index.getAdministrativeUnit()).setFunction(index.getFunction());
+					
+					userAccountsRequestPersons.add(userAccountsRequestPerson);
+				}
 			__inject__(UserAccountsRequestPersonBusiness.class).createMany(userAccountsRequestPersons);
+		}
+		
+		try {
+			String emailPort = "587";//gmail's smtp port
+
+			java.util.Properties emailProperties = System.getProperties();
+			emailProperties.put("mail.smtp.port", emailPort);
+			emailProperties.put("mail.smtp.auth", "true");
+			emailProperties.put("mail.smtp.starttls.enable", "true");
+			
+			String[] toEmails = { persons.getAt(0).getElectronicMailAddress() };
+			String emailSubject = "SIB - Demande de compte utilisateur";
+			String emailBody = userAccountsRequest.getPersons().getAt(0).getFirstName()+" "+userAccountsRequest.getPersons().getAt(0).getLastNames()
+					+" , votre demande de compte utilisateur a été enregistrée avec succès. Le code de cette demande est "+userAccountsRequest.getCode();
+
+			Session mailSession = Session.getDefaultInstance(emailProperties, null);
+			MimeMessage emailMessage = new MimeMessage(mailSession);
+
+			for (int i = 0; i < toEmails.length; i++) {
+				emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
+			}
+
+			emailMessage.setSubject(emailSubject);
+			emailMessage.setContent(emailBody, "text/html");//for a html email
+			//emailMessage.setText(emailBody);// for a text email
+			
+			String emailHost = "smtp.gmail.com";
+			String fromUser = "dgbfdtideveloppers";//just the id alone without @gmail.com
+			String fromUserEmailPassword = "dgbf2016dti";
+
+			Transport transport = mailSession.getTransport("smtp");
+
+			transport.connect(emailHost, fromUser, fromUserEmailPassword);
+			transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
+			transport.close();
+		}catch(Exception exception) {
+			throw new RuntimeException(exception);
 		}
 		return this;
 	}

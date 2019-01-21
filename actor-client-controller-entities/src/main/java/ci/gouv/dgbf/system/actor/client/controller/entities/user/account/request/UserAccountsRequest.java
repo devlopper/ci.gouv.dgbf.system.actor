@@ -17,8 +17,8 @@ public interface UserAccountsRequest extends Data {
 	@Override UserAccountsRequest setIdentifier(Object identifier);
 	@Override UserAccountsRequest setCode(String code);
 	
-	Date getDate();
-	UserAccountsRequest setDate(Date date);
+	String getCreationDate();
+	UserAccountsRequest setCreationDate(String creationDate);
 	
 	Person getPerson();
 	UserAccountsRequest setPerson(Person person);
@@ -61,7 +61,7 @@ public interface UserAccountsRequest extends Data {
 	
 	/**/
 	
-	String PROPERTY_DATE = "date";
+	String PROPERTY_CREATION_DATE = "creationDate";
 	String PROPERTY_PERSON = "person";
 	String PROPERTY_PERSONS = "persons";
 	String PROPERTY_NUMBER_OF_PERSON = "numberOfPerson";

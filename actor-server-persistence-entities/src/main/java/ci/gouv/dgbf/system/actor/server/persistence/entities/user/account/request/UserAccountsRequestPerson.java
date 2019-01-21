@@ -1,9 +1,11 @@
 package ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,18 +20,23 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-@Entity @Getter @Setter @Accessors(chain=true) @Table(uniqueConstraints= {
+@Entity @Getter @Setter @Accessors(chain=true) @Table(
+		name=UserAccountsRequestPerson.TABLE_NAME,
+		uniqueConstraints= {
 		@UniqueConstraint(name="ucUserAccountsRequestPerson",columnNames= {UserAccountsRequestPerson.COLUMN_USER_ACCOUNTS_REQUEST,UserAccountsRequestPerson.COLUMN_PERSON})
 })
-@Access(AccessType.FIELD)
+@Access(AccessType.FIELD) 
 public class UserAccountsRequestPerson extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@JoinColumn(name=COLUMN_USER_ACCOUNTS_REQUEST) @ManyToOne @NotNull private UserAccountsRequest userAccountsRequest;
 	@JoinColumn(name=COLUMN_PERSON) @ManyToOne @NotNull private Person person;
+	//Use boolean for status
+	@Column(name=COLUMN_STATUS) private String status;
+	@Column(name=COLUMN_ACCOUNT_CREATION_DATE) private Date accountCreationDate;
 	
-	private String administrativeUnit;
-	private String function;
+	@Column(name=COLUMN_ADMINISTRATIVE_UNIT) private String administrativeUnit;
+	@Column(name=COLUMN_FUNCTION) private String function;
 	
 	/**/
 	
@@ -45,6 +52,13 @@ public class UserAccountsRequestPerson extends AbstractEntity implements Seriali
 	public static final String FIELD_ADMINISTRATIVE_UNIT = "administrativeUnit";
 	public static final String FIELD_FUNCTION = "function";
 	
-	public static final String COLUMN_USER_ACCOUNTS_REQUEST = FIELD_USER_ACCOUNTS_REQUEST;
-	public static final String COLUMN_PERSON = FIELD_PERSON;
+	public static final String TABLE_NAME = "demande_compte_utilisateur_personne";
+	
+	public static final String COLUMN_USER_ACCOUNTS_REQUEST = "demande_compte_utilisateur";
+	public static final String COLUMN_PERSON = "personne";
+	public static final String COLUMN_STATUS = "statut";
+	public static final String COLUMN_ACCOUNT_CREATION_DATE = "date_creation_compte_utilisateur";
+	public static final String COLUMN_ADMINISTRATIVE_UNIT = "unite_administrative";
+	public static final String COLUMN_FUNCTION = "fonction";
+	
 }

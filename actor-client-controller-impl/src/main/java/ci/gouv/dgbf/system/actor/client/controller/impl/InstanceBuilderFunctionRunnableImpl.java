@@ -12,6 +12,7 @@ import org.cyk.utility.random.RandomHelper;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.PersonImpl;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Persons;
+import ci.gouv.dgbf.system.actor.client.controller.entities.person.Sex;
 import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.RoleImpl;
@@ -31,6 +32,7 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			data.setIdentifier(representation.getIdentifier());
 			data.setCode(representation.getCode());
 			data.setLetter(representation.getLetter());
+			data.setCreationDate(representation.getCreationDate());
 			
 			if(__inject__(CollectionHelper.class).isNotEmpty(representation.getRoles())) {
 				data.setRoles(new ArrayList<>());
@@ -40,8 +42,8 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			
 			if(__inject__(CollectionHelper.class).isNotEmpty(representation.getPersons())) {
 				data.setPersons(__inject__(Persons.class));
-				for(PersonDto index : representation.getPersons())
-					data.getPersons(Boolean.TRUE).add(__inject__(InstanceHelper.class).buildOne(PersonImpl.class, index));
+				for(PersonDto index : representation.getPersons()) 
+					data.getPersons(Boolean.TRUE).add(__inject__(InstanceHelper.class).buildOne(PersonImpl.class, index).setSex(index.getIsMasculine() ? Sex.MASCULIN : Sex.FEMININ));
 			}
 			
 			if(__inject__(CollectionHelper.class).isNotEmpty(representation.getServices())) {
@@ -77,7 +79,7 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			if(__inject__(CollectionHelper.class).isNotEmpty(persons)) {
 				representation.setPersons(new ArrayList<>());
 				for(Person index : persons.get())
-					representation.getPersons().add(__inject__(InstanceHelper.class).buildOne(PersonDto.class, index));
+					representation.getPersons().add(__inject__(InstanceHelper.class).buildOne(PersonDto.class, index).setIsMasculine(Sex.MASCULIN.equals(index.getSex())));
 			}
 			
 			Collection<Service> services = data.getServices();

@@ -14,7 +14,7 @@ public class UserAccountsRequestListWindowBuilderImpl extends AbstractWindowCont
 	protected void __listenPostConstruct__() {
 		super.__listenPostConstruct__();
 		setRowClass(UserAccountsRequestReadRow.class);
-		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountsRequest.PROPERTY_CODE,UserAccountsRequest.PROPERTY_DATE
+		addGridColumnsFieldNamesWithPrefix(RowData.PROPERTY_DATA, UserAccountsRequest.PROPERTY_CODE,UserAccountsRequest.PROPERTY_CREATION_DATE
 				,__injectFieldHelper__().concatenate(UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FIRST_NAME_AND_LAST_NAMES));
 	}
 	

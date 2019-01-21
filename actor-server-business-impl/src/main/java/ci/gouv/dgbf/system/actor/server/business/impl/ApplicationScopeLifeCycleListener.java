@@ -45,7 +45,8 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		userAccountsRequest.addRoles(__inject__(RolePersistence.class).readByCode("ADMINISTRATEUR"),__inject__(RolePersistence.class).readByCode("CHARGE_ETUDE"));
 		userAccountsRequest.addServices("ELB");
 		userAccountsRequest.setLetter("Ma lettre");
-		__inject__(UserAccountsRequestBusiness.class).create(userAccountsRequest);
+		//__inject__(UserAccountsRequestBusiness.class).create(userAccountsRequest);
+		
 	}
 	
 	@Override

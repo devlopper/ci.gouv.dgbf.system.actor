@@ -22,6 +22,7 @@ public class UserAccountsRequestDto extends AbstractEntityFromPersistenceEntity 
 	private static final long serialVersionUID = 1L;
 
 	private String letter;
+	private String creationDate;
 	private Collection<RoleDto> roles;
 	private Collection<String> services;
 	private Collection<PersonDto> persons;

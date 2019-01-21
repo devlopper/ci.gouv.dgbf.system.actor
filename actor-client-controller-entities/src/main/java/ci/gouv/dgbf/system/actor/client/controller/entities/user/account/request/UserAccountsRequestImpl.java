@@ -29,8 +29,8 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 public class UserAccountsRequestImpl extends AbstractDataImpl implements UserAccountsRequest,Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Input @InputString @InputStringLineOne @NotNull
-	private Date date;
+	@Input @InputString @InputStringLineOne
+	private String creationDate;
 	
 	@Input @InputString @InputStringLineOne @NotNull
 	private Person person;
@@ -109,13 +109,13 @@ public class UserAccountsRequestImpl extends AbstractDataImpl implements UserAcc
 	}
 	
 	@Override
-	public Date getDate() {
-		return date;
+	public String getCreationDate() {
+		return creationDate;
 	}
 	
 	@Override
-	public UserAccountsRequest setDate(Date date) {
-		this.date = date;
+	public UserAccountsRequest setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
 		return this;
 	}
 	

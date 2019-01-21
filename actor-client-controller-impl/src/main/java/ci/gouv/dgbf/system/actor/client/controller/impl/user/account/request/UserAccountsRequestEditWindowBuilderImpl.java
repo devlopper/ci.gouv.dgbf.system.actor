@@ -1,13 +1,17 @@
 package ci.gouv.dgbf.system.actor.client.controller.impl.user.account.request;
 import java.io.Serializable;
 
+import org.arquillian.spacelift.process.CommandBuilder;
+import org.cyk.utility.client.controller.component.command.CommandableBuilder;
 import org.cyk.utility.client.controller.component.grid.GridBuilder;
 import org.cyk.utility.client.controller.component.grid.column.ColumnBuilder;
 import org.cyk.utility.client.controller.component.view.ViewBuilder;
 import org.cyk.utility.client.controller.component.window.AbstractWindowContainerManagedWindowBuilderEditDataImpl;
+import org.cyk.utility.client.controller.component.window.WindowBuilder;
 import org.cyk.utility.client.controller.component.window.WindowRenderTypeDialog;
 import org.cyk.utility.client.controller.data.Data;
 import org.cyk.utility.client.controller.data.Form;
+import org.cyk.utility.client.controller.data.Row;
 import org.cyk.utility.client.controller.session.SessionUser;
 import org.cyk.utility.client.controller.session.SessionUserGetter;
 import org.cyk.utility.system.action.SystemAction;
@@ -62,14 +66,15 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 			
 			if(systemAction instanceof SystemActionRead) {
 				viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_CODE);
+				viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_CREATION_DATE);
 			}
 			
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FIRST_NAME);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_LAST_NAMES);
 			
-			//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_SEX);
-			//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ADMINISTRATIVE_UNIT);
-			//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FUNCTION);
+			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_SEX);
+			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ADMINISTRATIVE_UNIT);
+			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_FUNCTION);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_ELECTRONIC_MAIL_ADDRESS);
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_PHONE_NUMBER);
 			//viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_PERSON,Person.PROPERTY_POSTAL_BOX_ADDRESS);
@@ -80,8 +85,16 @@ public class UserAccountsRequestEditWindowBuilderImpl extends AbstractWindowCont
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_LETTER);
 		}else if(systemAction instanceof SystemActionRedirect) {
 			viewBuilder.addInputBuilderByObjectByFieldNames(data,systemAction, UserAccountsRequest.PROPERTY_CODE);
+		}	
+	}
+	
+	@Override
+	protected void __execute__(WindowBuilder window, SystemAction systemAction, Class<? extends Form> formClass,Class<? extends Row> rowClass) {
+		super.__execute__(window, systemAction, formClass, rowClass);
+		if(systemAction instanceof SystemActionRedirect) {
+			CommandableBuilder commandable = (CommandableBuilder) getView().getComponentsBuilder().getComponents().getLast();	
+			commandable.setName("Consulter");
 		}
-		
 		
 	}
 

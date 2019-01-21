@@ -8,3 +8,7 @@
 .panel_grid_no_border {
 	border: none;
 }
+
+.cyk_input {
+	width: 100%;
+}

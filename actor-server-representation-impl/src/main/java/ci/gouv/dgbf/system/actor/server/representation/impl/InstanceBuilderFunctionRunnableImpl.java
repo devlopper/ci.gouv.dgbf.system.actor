@@ -1,8 +1,10 @@
 package ci.gouv.dgbf.system.actor.server.representation.impl;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 
 import org.cyk.utility.collection.CollectionHelper;
 import org.cyk.utility.instance.AbstractInstanceBuilderFunctionRunnableImpl;
@@ -66,6 +68,7 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			representation.setIdentifier(persistence.getIdentifier().toString());
 			representation.setCode(persistence.getCode());
 			representation.setLetter(persistence.getLetter());
+			representation.setCreationDate(new SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.FRANCE).format(persistence.getCreationDate()));
 			
 			Collection<UserAccountsRequestRole> userAccountsRequestRoles = __inject__(UserAccountsRequestRolePersistence.class).readByUserAccountsRequest(persistence);
 			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountsRequestRoles)) {
@@ -79,7 +82,10 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountsRequestPersons)) {
 				representation.setPersons(new ArrayList<>());
 				for(UserAccountsRequestPerson index : userAccountsRequestPersons) {
-					representation.getPersons().add(__inject__(InstanceHelper.class).buildOne(PersonDto.class, index.getPerson()));
+					PersonDto person = __inject__(InstanceHelper.class).buildOne(PersonDto.class, index.getPerson());
+					person.setAdministrativeUnit(index.getAdministrativeUnit());
+					person.setFunction(index.getFunction());
+					representation.getPersons().add(person);
 				}
 			}
 			

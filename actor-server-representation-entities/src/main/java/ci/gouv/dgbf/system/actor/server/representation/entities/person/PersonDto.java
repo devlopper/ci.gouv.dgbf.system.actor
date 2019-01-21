@@ -24,4 +24,6 @@ public class PersonDto extends AbstractEntityFromPersistenceEntity implements Se
 	private String electronicMailAddress;
 	private String phoneNumber;
 	
+	private String administrativeUnit;
+	private String function;
 }
