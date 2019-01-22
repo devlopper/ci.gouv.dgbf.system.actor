@@ -7,8 +7,12 @@ import javax.inject.Named;
 
 import org.cyk.utility.client.controller.component.command.CommandableBuilder;
 import org.cyk.utility.client.controller.component.layout.Proportions;
+import org.cyk.utility.client.controller.component.window.WindowBuilder;
 import org.cyk.utility.client.controller.component.window.WindowContainerManagedWindowBuilder;
 import org.cyk.utility.client.controller.component.window.WindowContainerManagedWindowBuilderGetter;
+import org.cyk.utility.client.controller.event.EventBuilder;
+import org.cyk.utility.client.controller.event.EventName;
+import org.cyk.utility.client.controller.navigation.NavigationIdentifierToUrlStringMapper;
 import org.cyk.utility.client.controller.web.jsf.primefaces.AbstractPageContainerManagedImpl;
 import org.cyk.utility.system.action.SystemAction;
 import org.cyk.utility.system.action.SystemActionCreate;
@@ -31,9 +35,18 @@ public class UserAccountsRequestCreateByNotConnectedPage extends AbstractPageCon
 		Proportions proportions = windowContainerManagedWindowBuilder.getView(Boolean.TRUE).getComponentsBuilder(Boolean.TRUE).getLayout(Boolean.TRUE)
 				.getGridRowModel(Boolean.TRUE).getWidthProportions(Boolean.TRUE);
 		proportions.set(0,3,1,6,2,3);
-		CommandableBuilder commandableBuilder = windowContainerManagedWindowBuilder.getWindow(Boolean.TRUE).getDialog(Boolean.TRUE).getOkCommandable(Boolean.TRUE);
-		//commandableBuilder.setName("MyOkButton");
 		return windowContainerManagedWindowBuilder;
+	}
+	
+	@Override
+	protected WindowBuilder __getWindowBuilder__() {
+		WindowBuilder window =  super.__getWindowBuilder__();
+		CommandableBuilder commandableBuilder = window.getDialog(Boolean.TRUE).getOkCommandable(Boolean.TRUE);
+		String url = __inject__(NavigationIdentifierToUrlStringMapper.class).setIdentifier("userAccountsRequestFindByNotConnectedUserView").execute().getOutput();
+		String script = "window.location.href='"+url+"'";
+		EventBuilder event = __inject__(EventBuilder.class).setName(EventName.CLICK).addScriptInstructions(script);
+		commandableBuilder.addEvents(event);
+		return window;
 	}
 	
 }
