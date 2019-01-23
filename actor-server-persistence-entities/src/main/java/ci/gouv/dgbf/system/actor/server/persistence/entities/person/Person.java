@@ -48,7 +48,7 @@ public class Person extends AbstractEntity implements Serializable {
 	public static final String FIELD_ELECTRONIC_MAIL_ADDRESS = "electronicMailAddress";
 	public static final String FIELD_PHONE_NUMBER = "phoneNumber";
 	
-	public static final String TABLE_NAME = "personne";
+	public static final String TABLE_NAME = "pers";
 	
 	public static final String COLUMN_FIRST_NAME = "nom";
 	public static final String COLUMN_LAST_NAMES = "prenoms";

@@ -1,7 +1,6 @@
 package ci.gouv.dgbf.system.actor.client.controller.impl.user.account.request;
 import java.io.Serializable;
 
-import org.arquillian.spacelift.process.CommandBuilder;
 import org.cyk.utility.client.controller.component.command.CommandableBuilder;
 import org.cyk.utility.client.controller.component.grid.GridBuilder;
 import org.cyk.utility.client.controller.component.grid.column.ColumnBuilder;

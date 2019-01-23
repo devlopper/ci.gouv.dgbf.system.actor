@@ -81,7 +81,7 @@ public class UserAccountsRequestBusinessImpl extends AbstractBusinessEntityImpl<
 				}
 			__inject__(UserAccountsRequestPersonBusiness.class).createMany(userAccountsRequestPersons);
 		}
-		/*
+		
 		try {
 			String emailPort = "587";//gmail's smtp port
 
@@ -118,7 +118,7 @@ public class UserAccountsRequestBusinessImpl extends AbstractBusinessEntityImpl<
 		}catch(Exception exception) {
 			throw new RuntimeException(exception);
 		}
-		*/
+		
 		return this;
 	}
 	

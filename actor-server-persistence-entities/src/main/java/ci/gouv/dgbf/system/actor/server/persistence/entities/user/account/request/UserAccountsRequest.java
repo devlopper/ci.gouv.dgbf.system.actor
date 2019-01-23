@@ -30,7 +30,7 @@ public class UserAccountsRequest extends AbstractEntity implements Serializable 
 	@Column(name=COLUMN_CREATION_DATE) private Date creationDate;
 	@Column(name=COLUMN_PROCESSING_DATE) private Date processingDate;
 	
-	@Column(name=COLUMN_LETTER) private String letter;
+	@Column(name=COLUMN_LETTER,length=1024 * 100) private String letter;
 	
 	@Transient private Roles roles;
 	@Transient private Strings services;
@@ -90,7 +90,8 @@ public class UserAccountsRequest extends AbstractEntity implements Serializable 
 	public static final String FIELD_SERVICES = "services";
 	public static final String FIELD_PERSONS = "persons";
 	
-	public static final String TABLE_NAME = "demande_compte_utilisateur";
+	//public static final String TABLE_NAME = "dem_cpt_util";
+	public static final String TABLE_NAME = "cpt_util";
 	
 	public static final String COLUMN_LETTER = "lettre";
 	public static final String COLUMN_CREATION_DATE = "date_creation";

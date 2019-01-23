@@ -15,7 +15,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 
 	@Override
 	public void __initialize__(Object object) {
-		__inject__(RoleBusiness.class).createMany(__inject__(CollectionHelper.class).instanciate(
+		/*__inject__(RoleBusiness.class).createMany(__inject__(CollectionHelper.class).instanciate(
 				new Role().setCode("ADMINISTRATEUR").setName("Administrateur")
 				,new Role().setCode("ASSISTANT").setName("Assistants")
 				,new Role().setCode("CHARGE_ETUDE").setName("Chargés d’études")
@@ -35,7 +35,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 				,new Role().setCode("CB").setName("Contrôleur budgétaire")
 				,new Role().setCode("CA").setName("Comptable Assignataire")
 				));
-		
+		*/
 		/*
 		UserAccountsRequest userAccountsRequest = new UserAccountsRequest();
 		userAccountsRequest.addPersons(new Person().setFirstName("Komenan").setLastNames("Yao Christian").setElectronicMailAddress("dgbfdtideveloppers@gmail.com").setPhoneNumber("07625658")

@@ -52,12 +52,12 @@ public class UserAccountsRequestPerson extends AbstractEntity implements Seriali
 	public static final String FIELD_ADMINISTRATIVE_UNIT = "administrativeUnit";
 	public static final String FIELD_FUNCTION = "function";
 	
-	public static final String TABLE_NAME = "demande_compte_utilisateur_personne";
+	public static final String TABLE_NAME = UserAccountsRequest.TABLE_NAME+ "_"+Person.TABLE_NAME;
 	
-	public static final String COLUMN_USER_ACCOUNTS_REQUEST = "demande_compte_utilisateur";
-	public static final String COLUMN_PERSON = "personne";
+	public static final String COLUMN_USER_ACCOUNTS_REQUEST = UserAccountsRequest.TABLE_NAME;
+	public static final String COLUMN_PERSON = Person.TABLE_NAME;
 	public static final String COLUMN_STATUS = "statut";
-	public static final String COLUMN_ACCOUNT_CREATION_DATE = "date_creation_compte_utilisateur";
+	public static final String COLUMN_ACCOUNT_CREATION_DATE = UserAccountsRequest.TABLE_NAME+"_date_creation";
 	public static final String COLUMN_ADMINISTRATIVE_UNIT = "unite_administrative";
 	public static final String COLUMN_FUNCTION = "fonction";
 	

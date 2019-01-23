@@ -18,7 +18,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-@Entity @Getter @Setter @Accessors(chain=true) @Table(uniqueConstraints= {
+@Entity @Getter @Setter @Accessors(chain=true) @Table(
+		name=UserAccountsRequestRole.TABLE_NAME,
+		uniqueConstraints= {
 		@UniqueConstraint(name="ucUserAccountsRequestRole",columnNames= {UserAccountsRequestRole.COLUMN_USER_ACCOUNTS_REQUEST,UserAccountsRequestRole.COLUMN_ROLE})
 })
 @Access(AccessType.FIELD)
@@ -40,6 +42,8 @@ public class UserAccountsRequestRole extends AbstractEntity implements Serializa
 	public static final String FIELD_USER_ACCOUNTS_REQUEST = "userAccountsRequest";
 	public static final String FIELD_ROLE = "role";
 	
-	public static final String COLUMN_USER_ACCOUNTS_REQUEST = FIELD_USER_ACCOUNTS_REQUEST;
-	public static final String COLUMN_ROLE = FIELD_ROLE;
+	public static final String TABLE_NAME = UserAccountsRequest.TABLE_NAME+"_"+Role.TABLE_NAME;
+	
+	public static final String COLUMN_USER_ACCOUNTS_REQUEST = UserAccountsRequest.TABLE_NAME;
+	public static final String COLUMN_ROLE = Role.TABLE_NAME;
 }

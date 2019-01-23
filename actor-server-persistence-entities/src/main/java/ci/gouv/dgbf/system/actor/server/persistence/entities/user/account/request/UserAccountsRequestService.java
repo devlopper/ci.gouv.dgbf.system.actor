@@ -18,7 +18,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-@Entity @Getter @Setter @Accessors(chain=true) @Table(uniqueConstraints= {
+@Entity @Getter @Setter @Accessors(chain=true) @Table(
+		name=UserAccountsRequestService.TABLE_NAME,
+		uniqueConstraints= {
 		@UniqueConstraint(name="ucUserAccountsRequestService",columnNames= {UserAccountsRequestService.COLUMN_USER_ACCOUNTS_REQUEST,UserAccountsRequestService.COLUMN_SERVICE})
 })
 @Access(AccessType.FIELD)
@@ -40,6 +42,8 @@ public class UserAccountsRequestService extends AbstractEntity implements Serial
 	public static final String FIELD_USER_ACCOUNTS_REQUEST = "userAccountsRequest";
 	public static final String FIELD_SERVICE = "service";
 	
-	public static final String COLUMN_USER_ACCOUNTS_REQUEST = FIELD_USER_ACCOUNTS_REQUEST;
-	public static final String COLUMN_SERVICE = FIELD_SERVICE;
+	public static final String TABLE_NAME = UserAccountsRequest.TABLE_NAME+"_svce";
+	
+	public static final String COLUMN_USER_ACCOUNTS_REQUEST = UserAccountsRequest.TABLE_NAME;
+	public static final String COLUMN_SERVICE = "svce";
 }

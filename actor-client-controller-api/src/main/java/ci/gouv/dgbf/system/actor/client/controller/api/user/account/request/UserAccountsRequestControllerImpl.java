@@ -16,11 +16,20 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request
 public class UserAccountsRequestControllerImpl extends AbstractControllerEntityImpl<UserAccountsRequest> implements UserAccountsRequestController,Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Override
+	/*@Override
 	public ControllerServiceProvider<UserAccountsRequest> create(UserAccountsRequest object, Properties properties) {
 		properties.setNotificationBuilders(__inject__(NotificationBuilders.class).add(__inject__(NotificationBuilder.class)
 				.setSummary("Veuillez consulter votre boite électronique pour récuperer le code de votre demande.")));
 		return super.create(object, properties);
 	}
+	*/
 	
+	@Override
+	public ControllerServiceProvider<UserAccountsRequest> create(UserAccountsRequest userAccountsRequest, Properties properties) {
+		properties.setNotificationBuilders(__inject__(NotificationBuilders.class).add(__inject__(NotificationBuilder.class)
+				.setSummary("Veuillez consulter votre boite électronique pour récuperer le code de votre demande.")));
+		super.create(userAccountsRequest, properties);
+		
+		return this;
+	}
 }
