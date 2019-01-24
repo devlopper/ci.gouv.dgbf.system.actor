@@ -41,7 +41,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		
 		__inject__(StringRepositoryResourceBundle.class).addBundle("ci.gouv.dgbf.system.actor.client.controller.entities.message");
 		
-		__inject__(Application.class).setName("SIB | Gestion des acteurs");
+		__inject__(Application.class).setName("SIIB");
 		
 	}
 	

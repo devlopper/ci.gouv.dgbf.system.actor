@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.cyk.pom.jee.server.jboss.swarm</groupId>
-		<artifactId>pom-jee-server-jboss-swarm</artifactId>
-		<version>pom.jee.server.jboss.swarm.0.0.1</version>
+		<groupId>org.cyk.pom.jee.server.jboss</groupId>
+		<artifactId>pom-jee-server-jboss</artifactId>
+		<version>pom.jee.server.jboss.0.0.1</version>
 	</parent>
 
 	<groupId>ci.gouv.dgbf.system.actor.server</groupId>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ci.gouv.dgbf.system.actor.server</groupId>
+		<artifactId>actor-server-_pom</artifactId>
+		<version>0.0.1</version>
+	</parent>
+
+	<name>Deployment Standalone based on Microprofile by Jboss Swarm</name>
+	
+	<groupId>ci.gouv.dgbf.system.actor.server.deployment</groupId>
+	<artifactId>actor-server-deployment-standalone</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<wildfly.swarm.bom.version>2017.2.0</wildfly.swarm.bom.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly.swarm</groupId>
+				<artifactId>bom-all</artifactId>
+				<version>${wildfly.swarm.bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.wildfly.swarm</groupId>
+					<artifactId>wildfly-swarm-plugin</artifactId>
+					<version>${wildfly.swarm.bom.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>package</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>ci.gouv.dgbf.system.actor.server.representation</groupId>
+			<artifactId>actor-server-representation-impl</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.cyk.pom.jee.server.representation.main.jboss.swarm</groupId>
+			<artifactId>pom-jee-server-representation-main-jboss-swarm</artifactId>
+			<version>pom.jee.server.representation.main.jboss.swarm.0.0.1</version>
+			<type>pom</type>
+		</dependency>
+		
+	
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
+		</dependency>
+		
+		<!--
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.13</version>
+		</dependency>
+		-->
+		<!--
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.47</version>
+		</dependency>
+		-->
+		
+		<dependency>
+		    <groupId>oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.2.0.3</version>
+		</dependency>
+		
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>org.cyk.test</id>
+			<properties>
+				<org.cyk.test.swarm.project.defaults.file>project-defaults.yml</org.cyk.test.swarm.project.defaults.file>
+			</properties>
+		</profile>
+	</profiles>	
+	
+</project>

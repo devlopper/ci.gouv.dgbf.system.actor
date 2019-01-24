@@ -1,4 +1,7 @@
-package ci.gouv.dgbf.system.actor.server.deployment.web;
+package ci.gouv.dgbf.system.actor.server.deployment.standalone;
+
+//TODO this not detected : how to make it work instead of using -ds.xml file ?
+
 /*
 @javax.annotation.sql.DataSourceDefinition(
 		name="java:global/actor/server/dataSource",

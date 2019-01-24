@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+	<datasource 
+		jndi-name="java:global/actor/server/dataSource"
+		enabled="false" 
+		use-java-context="true" 
+		pool-name="actorServerDataSource_h2"
+	>
+		<connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+		<driver>h2</driver>
+		
+		<security>
+			<user-name>sa</user-name>
+			<password>sa</password>
+		</security>
+	</datasource>
+	
+	<datasource 
+		jndi-name="java:global/actor/server/dataSource"
+		enabled="false" 
+		use-java-context="true" 
+		pool-name="actorServerDataSource_mysql"
+	>
+		<connection-url>jdbc:mysql://localhost:3306/sib_actor</connection-url>
+		<driver>mysql</driver>
+		
+		<security>
+			<user-name>root</user-name>
+			<password>root</password>
+		</security>
+	</datasource>
+	
+	<datasource 
+		jndi-name="java:global/actor/server/dataSource"
+		enabled="false" 
+		use-java-context="true" 
+		pool-name="actorServerDataSource_oracle_remote"
+	>
+		<connection-url>jdbc:oracle:thin:@10.40.40.3:1521:xe</connection-url>
+		<driver>oracle</driver>
+		
+		<security>
+			<user-name>acteur</user-name>
+			<password>acteur</password>
+		</security>
+	</datasource>
+	
+	<datasource 
+		jndi-name="java:global/actor/server/dataSource"
+		enabled="true" 
+		use-java-context="true" 
+		pool-name="actorServerDataSource_oracle_local"
+	>
+		<connection-url>jdbc:oracle:thin:@localhost:1521:xe</connection-url>
+		<driver>oracle</driver>
+		
+		<security>
+			<user-name>acteur</user-name>
+			<password>acteur</password>
+		</security>
+	</datasource>
+	
+</datasources>
