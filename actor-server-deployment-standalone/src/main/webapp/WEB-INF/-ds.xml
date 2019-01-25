@@ -4,7 +4,7 @@
 		jndi-name="java:global/actor/server/dataSource"
 		enabled="false" 
 		use-java-context="true" 
-		pool-name="actorServerDataSource_h2"
+		pool-name="actorServerDataSource_h2_memory"
 	>
 		<connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
 		<driver>h2</driver>
@@ -19,7 +19,7 @@
 		jndi-name="java:global/actor/server/dataSource"
 		enabled="false" 
 		use-java-context="true" 
-		pool-name="actorServerDataSource_mysql"
+		pool-name="actorServerDataSource_mysql_local"
 	>
 		<connection-url>jdbc:mysql://localhost:3306/sib_actor</connection-url>
 		<driver>mysql</driver>
@@ -36,7 +36,11 @@
 		use-java-context="true" 
 		pool-name="actorServerDataSource_oracle_remote"
 	>
+		<!--
 		<connection-url>jdbc:oracle:thin:@10.40.40.3:1521:xe</connection-url>
+		-->
+		<!-- We use host name instead of address. NB : do define it in host file -->
+		<connection-url>jdbc:oracle:thin:@sib-database:1521:xe</connection-url>
 		<driver>oracle</driver>
 		
 		<security>
