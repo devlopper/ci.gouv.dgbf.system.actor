@@ -2,6 +2,8 @@ package ci.gouv.dgbf.system.actor.client.controller.impl.user.account.request;
 
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -43,10 +45,14 @@ public class UserAccountsRequestCreateByNotConnectedPage extends AbstractPageCon
 		WindowBuilder window =  super.__getWindowBuilder__();
 		CommandableBuilder commandableBuilder = window.getDialog(Boolean.TRUE).getOkCommandable(Boolean.TRUE);
 		String url = __inject__(NavigationIdentifierToUrlStringMapper.class).setIdentifier("userAccountsRequestFindByNotConnectedUserView").execute().getOutput();
-		String script = "window.location.href='"+url+"'";
+		String script = "PF('"+window.getDialog(Boolean.TRUE).getOutputProperties().getWidgetVar()+"').hide(); if(#{userAccountsRequestCreateByNotConnectedPage.isMessageMaximumSeverityInfo()}) window.location.href='"+url+"'";
 		EventBuilder event = __inject__(EventBuilder.class).setName(EventName.CLICK).addScriptInstructions(script);
 		commandableBuilder.addEvents(event);
 		return window;
+	}
+	
+	public Boolean isMessageMaximumSeverityInfo() {
+		return FacesMessage.SEVERITY_INFO.equals(FacesContext.getCurrentInstance().getMaximumSeverity());
 	}
 	
 }

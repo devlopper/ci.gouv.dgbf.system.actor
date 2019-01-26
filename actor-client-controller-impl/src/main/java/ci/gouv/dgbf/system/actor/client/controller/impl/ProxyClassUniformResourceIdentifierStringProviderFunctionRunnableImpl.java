@@ -12,7 +12,7 @@ public class ProxyClassUniformResourceIdentifierStringProviderFunctionRunnableIm
 		setRunnable(new Runnable() {
 			@Override
 			public void run() {
-				setOutput("http://mic-demande-compte-server:8080/");
+				//setOutput("http://mic-demande-compte-server:8080/");
 				//setOutput("http://localhost:8080/actor/server");
 			}
 		});
