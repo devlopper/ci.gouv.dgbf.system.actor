@@ -16,19 +16,19 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.person.Sex;
 import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.RoleImpl;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 import ci.gouv.dgbf.system.actor.server.representation.entities.person.PersonDto;
 import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.RoleDto;
-import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountsRequestDto;
+import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountRequestDto;
 
 public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilderFunctionRunnableImpl implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void __copy__(Object source, Object destination) {
-		if(source instanceof UserAccountsRequestDto && destination instanceof UserAccountsRequest) {
-			UserAccountsRequestDto representation = (UserAccountsRequestDto) source;
-			UserAccountsRequest data = (UserAccountsRequest) destination;
+		if(source instanceof UserAccountRequestDto && destination instanceof UserAccountRequest) {
+			UserAccountRequestDto representation = (UserAccountRequestDto) source;
+			UserAccountRequest data = (UserAccountRequest) destination;
 			data.setIdentifier(representation.getIdentifier());
 			data.setCode(representation.getCode());
 			data.setLetter(representation.getLetter());
@@ -61,9 +61,9 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 				}
 			}
 			
-		}else if(source instanceof UserAccountsRequest && destination instanceof UserAccountsRequestDto) {
-			UserAccountsRequest data = (UserAccountsRequest) source;
-			UserAccountsRequestDto representation = (UserAccountsRequestDto) destination;
+		}else if(source instanceof UserAccountRequest && destination instanceof UserAccountRequestDto) {
+			UserAccountRequest data = (UserAccountRequest) source;
+			UserAccountRequestDto representation = (UserAccountRequestDto) destination;
 			representation.setCode(data.getCode());
 			representation.setLetter(data.getLetter());
 			

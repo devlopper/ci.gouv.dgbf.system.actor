@@ -15,7 +15,7 @@ import org.cyk.utility.system.action.SystemActionCreate;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountsRequest;
+import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 
 public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRunnableImpl<MenuBuilderMapGetter> implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -28,18 +28,18 @@ public class MenuBuilderMapGetterFunctionRunnableImpl extends AbstractFunctionRu
 				MenuBuilder menuBuilder = __inject__(MenuBuilder.class).setRenderType(__inject__(MenuRenderTypeRowBar.class));
 				if(principal == null) {
 					menuBuilder.addItems(
-							__inject__(MenuItemBuilder.class).setCommandableName("Demander un compte utilisateur").setCommandableNavigationIdentifier("userAccountsRequestCreateByNotConnectedUserView")
-							,__inject__(MenuItemBuilder.class).setCommandableName("Consulter ma demande de compte utilisateur").setCommandableNavigationIdentifier("userAccountsRequestFindByNotConnectedUserView")
+							__inject__(MenuItemBuilder.class).setCommandableName("Demander un compte utilisateur").setCommandableNavigationIdentifier("userAccountRequestCreateByNotConnectedUserView")
+							,__inject__(MenuItemBuilder.class).setCommandableName("Consulter ma demande de compte utilisateur").setCommandableNavigationIdentifier("userAccountRequestFindByNotConnectedUserView")
 						);	
 				}else {
 					menuBuilder.addItems(
 							__inject__(MenuItemBuilder.class).setCommandableName("Paramètres")
 								.addEntitiesList(FunctionCategory.class,Function.class)
-							,__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(UserAccountsRequest.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionCreate.class).setEntityClass(UserAccountsRequest.class))
+							,__inject__(MenuItemBuilder.class).setCommandableNameInternalizationKeyValue(UserAccountRequest.class).setCommandableNavigationIdentifierBuilderSystemAction(__inject__(SystemActionCreate.class).setEntityClass(UserAccountRequest.class))
 							//,__inject__(MenuItemBuilder.class).setCommandableName("Identification")
 							,__inject__(MenuItemBuilder.class).setCommandableName("Compte utilisateur")
-								.addEntitySelect(UserAccountsRequest.class).getLastChild().setCommandableName("Traitements des demandes de compte utilisateur").getParent()
-								.addEntitySelect(UserAccountsRequest.class,"createuseraccount").getLastChild().setCommandableName("Création de compte utilisateur").getParent()
+								.addEntitySelect(UserAccountRequest.class).getLastChild().setCommandableName("Traitements des demandes de compte utilisateur").getParent()
+								.addEntitySelect(UserAccountRequest.class,"createuseraccount").getLastChild().setCommandableName("Création de compte utilisateur").getParent()
 								//.addEntitiesCreate(UserAccount.class).getLastChild().setCommandableName("Création de compte utilisateur").getParent()
 							,__inject__(MenuItemBuilder.class).setCommandableName("Administration")
 								.addChild(__inject__(MenuItemBuilder.class).setCommandableName("Validation de compte utilisateur")

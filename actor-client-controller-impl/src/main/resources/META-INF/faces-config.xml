@@ -9,44 +9,20 @@
 		<from-view-id>*</from-view-id>
 		
 		<navigation-case>
-			<from-outcome>userAccountsRequestCreateByNotConnectedUserView</from-outcome>
+			<from-outcome>userAccountRequestCreateByNotConnectedUserView</from-outcome>
 			<to-view-id>/public/user/account/request/create.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
-			<from-outcome>userAccountsRequestFindByNotConnectedUserView</from-outcome>
+			<from-outcome>userAccountRequestFindByNotConnectedUserView</from-outcome>
 			<to-view-id>/public/user/account/request/find.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
-			<from-outcome>userAccountsRequestReadByNotConnectedUserView</from-outcome>
+			<from-outcome>userAccountRequestReadByNotConnectedUserView</from-outcome>
 			<to-view-id>/public/user/account/request/read.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>userAccountsRequestSelectByCodeView</from-outcome>
-			<to-view-id>/public/user/accounts/request/select.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>userAccountsRequestCreateByConnectedUserView</from-outcome>
-			<to-view-id>/private/user/accounts/request/edit.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>userAccountsRequestProcessView</from-outcome>
-			<to-view-id>/private/user/accounts/request/process.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		
-		<navigation-case>
-			<from-outcome>userAccountRequestProcessView</from-outcome>
-			<to-view-id>/private/user/account/request/process.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

@@ -13,26 +13,26 @@ import org.cyk.utility.string.StringHelper;
 
 import ci.gouv.dgbf.system.actor.server.business.api.person.PersonBusiness;
 import ci.gouv.dgbf.system.actor.server.business.api.user.account.RoleBusiness;
-import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountsRequestPersonPersistence;
-import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountsRequestRolePersistence;
-import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountsRequestServicePersistence;
+import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestPersonPersistence;
+import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestRolePersistence;
+import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestServicePersistence;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequest;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestPerson;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestRole;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountsRequestService;
+import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequest;
+import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestPerson;
+import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestRole;
+import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestService;
 import ci.gouv.dgbf.system.actor.server.representation.entities.person.PersonDto;
 import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.RoleDto;
-import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountsRequestDto;
+import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountRequestDto;
 
 public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilderFunctionRunnableImpl implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void __copy__(Object source, Object destination) {
-		if(source instanceof UserAccountsRequestDto && destination instanceof UserAccountsRequest) {
-			UserAccountsRequestDto representation = (UserAccountsRequestDto) source;
-			UserAccountsRequest persistence = (UserAccountsRequest) destination;
+		if(source instanceof UserAccountRequestDto && destination instanceof UserAccountRequest) {
+			UserAccountRequestDto representation = (UserAccountRequestDto) source;
+			UserAccountRequest persistence = (UserAccountRequest) destination;
 			persistence.setCode(representation.getCode());
 			persistence.setLetter(representation.getLetter());
 			
@@ -62,26 +62,26 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 					persistence.getServices(Boolean.TRUE).add(index);	
 				}
 			}
-		}else if(source instanceof UserAccountsRequest && destination instanceof UserAccountsRequestDto) {
-			UserAccountsRequest persistence = (UserAccountsRequest) source;
-			UserAccountsRequestDto representation = (UserAccountsRequestDto) destination;
+		}else if(source instanceof UserAccountRequest && destination instanceof UserAccountRequestDto) {
+			UserAccountRequest persistence = (UserAccountRequest) source;
+			UserAccountRequestDto representation = (UserAccountRequestDto) destination;
 			representation.setIdentifier(persistence.getIdentifier().toString());
 			representation.setCode(persistence.getCode());
 			representation.setLetter(persistence.getLetter());
 			representation.setCreationDate(new SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.FRANCE).format(persistence.getCreationDate()));
 			
-			Collection<UserAccountsRequestRole> userAccountsRequestRoles = __inject__(UserAccountsRequestRolePersistence.class).readByUserAccountsRequest(persistence);
-			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountsRequestRoles)) {
+			Collection<UserAccountRequestRole> userAccountRequestRoles = __inject__(UserAccountRequestRolePersistence.class).readByUserAccountRequest(persistence);
+			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountRequestRoles)) {
 				representation.setRoles(new ArrayList<>());
-				for(UserAccountsRequestRole index : userAccountsRequestRoles) {
+				for(UserAccountRequestRole index : userAccountRequestRoles) {
 					representation.getRoles().add(__inject__(InstanceHelper.class).buildOne(RoleDto.class, index.getRole()));
 				}
 			}
 			
-			Collection<UserAccountsRequestPerson> userAccountsRequestPersons = __inject__(UserAccountsRequestPersonPersistence.class).readByUserAccountsRequest(persistence);
-			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountsRequestPersons)) {
+			Collection<UserAccountRequestPerson> userAccountRequestPersons = __inject__(UserAccountRequestPersonPersistence.class).readByUserAccountRequest(persistence);
+			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountRequestPersons)) {
 				representation.setPersons(new ArrayList<>());
-				for(UserAccountsRequestPerson index : userAccountsRequestPersons) {
+				for(UserAccountRequestPerson index : userAccountRequestPersons) {
 					PersonDto person = __inject__(InstanceHelper.class).buildOne(PersonDto.class, index.getPerson());
 					person.setAdministrativeUnit(index.getAdministrativeUnit());
 					person.setFunction(index.getFunction());
@@ -89,10 +89,10 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 				}
 			}
 			
-			Collection<UserAccountsRequestService> userAccountsRequestServices = __inject__(UserAccountsRequestServicePersistence.class).readByUserAccountsRequest(persistence);
-			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountsRequestServices)) {
+			Collection<UserAccountRequestService> userAccountRequestServices = __inject__(UserAccountRequestServicePersistence.class).readByUserAccountRequest(persistence);
+			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountRequestServices)) {
 				representation.setServices(new ArrayList<>());
-				for(UserAccountsRequestService index : userAccountsRequestServices)
+				for(UserAccountRequestService index : userAccountRequestServices)
 					representation.getServices().add(index.getService());
 			}
 		}else
