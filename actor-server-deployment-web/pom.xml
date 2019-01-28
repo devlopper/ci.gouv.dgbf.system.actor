@@ -13,43 +13,150 @@
 	<groupId>ci.gouv.dgbf.system.actor.server.deployment</groupId>
 	<artifactId>actor-server-deployment-web</artifactId>
 	<packaging>war</packaging>
-
+	
+	<properties>
+		<org.wildfly.plugins.wildfly-maven-plugin.version>2.0.0.Final</org.wildfly.plugins.wildfly-maven-plugin.version>
+	</properties>
+	
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${org.wildfly.plugins.wildfly-maven-plugin.version}</version>
+            </plugin>
+            <!--
+            <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <version>2.0.2</version>
+		        <configuration>
+		            <webResources>
+		                <resource>
+		                    <directory>environment</directory>
+		                    <filtering>true</filtering>
+		                    <targetPath>WEB-INF</targetPath>
+		                    <includes>
+		                        <include>**/-ds.xml</include>
+		                     </includes>
+		                </resource>
+		            </webResources>
+		        </configuration>
+		    </plugin>
+            -->
+            <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>templating-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<id>filter-src</id>
+						<goals>
+							<goal>filter-sources</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+        </plugins>
+    </build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>ci.gouv.dgbf.system.actor.server.representation</groupId>
 			<artifactId>actor-server-representation-impl</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-		
-		<!--
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.197</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.13</version>
-		</dependency>
-		-->
-		
-		<!--
-		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.47</version>
-		</dependency>
-		-->
-		
-		<dependency>
-		    <groupId>com.oracle</groupId>
-		    <artifactId>ojdbc6</artifactId>
-		    <version>11.2.0.4</version>
-		</dependency>
-				
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>environment.development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<dataSource.className>oracle.jdbc.pool.OracleDataSource</dataSource.className>
+				<dataSource.url>jdbc:oracle:thin:@localhost:1521:xe</dataSource.url>
+				<dataSource.user>acteur</dataSource.user>
+				<dataSource.password>acteur</dataSource.password>
+			</properties>
+			<dependencies>
+				<dependency>
+				    <groupId>com.oracle</groupId>
+				    <artifactId>ojdbc6</artifactId>
+				    <version>11.2.0.4</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		
+		<profile>
+			<id>environment.production</id>
+			<properties>
+				<dataSource.className>oracle.jdbc.pool.OracleDataSource</dataSource.className>
+				<dataSource.url>jdbc:oracle:thin:@sib-database:1521:xe</dataSource.url>
+				<dataSource.user>acteur</dataSource.user>
+				<dataSource.password>acteur</dataSource.password>
+			</properties>
+			<dependencies>
+				<dependency>
+				    <groupId>com.oracle</groupId>
+				    <artifactId>ojdbc6</artifactId>
+				    <version>11.2.0.4</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		
+		<profile>
+			<id>jdbc.h2</id>
+			<properties>
+				<dataSource.className>org.h2.jdbcx.JdbcDataSource</dataSource.className>
+				<dataSource.url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</dataSource.url>
+				<dataSource.user>sa</dataSource.user>
+				<dataSource.password>sa</dataSource.password>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<version>1.4.197</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		
+		<profile>
+			<id>jdbc.mysql</id>
+			<properties>
+				<dataSource.className>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</dataSource.className>
+				<dataSource.url>jdbc:mysql://localhost:3306/sib_actor</dataSource.url>
+				<dataSource.user>root</dataSource.user>
+				<dataSource.password>root</dataSource.password>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>mysql</groupId>
+		    		<artifactId>mysql-connector-java</artifactId>
+		    		<version>5.1.47</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		
+		<profile>
+			<id>jdbc.oracle</id>
+			<properties>
+				<dataSource.className>oracle.jdbc.pool.OracleDataSource</dataSource.className>
+				<dataSource.url>oracle.jdbc.pool.OracleDataSource</dataSource.url>
+				<dataSource.user>acteur</dataSource.user>
+				<dataSource.password>acteur</dataSource.password>
+			</properties>
+			<dependencies>
+				<dependency>
+				    <groupId>com.oracle</groupId>
+				    <artifactId>ojdbc6</artifactId>
+				    <version>11.2.0.4</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 	
 </project>

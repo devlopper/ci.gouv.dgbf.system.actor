@@ -1,5 +1,7 @@
 package ci.gouv.dgbf.system.actor.server.deployment.web;
 
+//TODO this not detected : how to make it work instead of using -ds.xml file ?
+
 /*
 @javax.annotation.sql.DataSourceDefinition(
 		name="java:global/actor/server/dataSource",
@@ -9,7 +11,6 @@ package ci.gouv.dgbf.system.actor.server.deployment.web;
 		password="sa"
 )
 */
-
 /*
 @javax.annotation.sql.DataSourceDefinition(
 		name="java:global/actor/server/dataSource",
@@ -20,14 +21,11 @@ package ci.gouv.dgbf.system.actor.server.deployment.web;
 )
 */
 
-/*
-
 //Oracle
-@javax.annotation.sql.DataSourceDefinition(
+/*@javax.annotation.sql.DataSourceDefinition(
 		name="java:global/actor/server/dataSource",
 		className="oracle.jdbc.pool.OracleDataSource",
-		//url="jdbc:oracle:thin:@10.40.40.3:1521:xe",
-		url="jdbc:oracle:thin:@sib-database:1521:xe",
+		url="jdbc:oracle:thin:@10.40.40.3:1521:xe",
 		user="acteur",
 		password="acteur"
 )
@@ -35,12 +33,11 @@ package ci.gouv.dgbf.system.actor.server.deployment.web;
 
 @javax.annotation.sql.DataSourceDefinition(
 		name="java:global/actor/server/dataSource",
-		className="oracle.jdbc.pool.OracleDataSource",
-		url="jdbc:oracle:thin:@localhost:1521:xe",
-		user="acteur",
-		password="acteur"
+		className="${dataSource.className}",
+		url="${dataSource.url}",
+		user="${dataSource.user}",
+		password="${dataSource.password}"
 )
-
 public class DataSourceDefinition {
 
 }
