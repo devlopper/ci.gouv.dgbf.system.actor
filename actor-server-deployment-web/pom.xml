@@ -167,6 +167,25 @@
 		                <version>${org.wildfly.plugins.wildfly-maven-plugin}</version>
 		            </plugin>		            
 				</plugins>
+				
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+						<excludes>
+							<exclude>**/project-defaults.yml</exclude>
+						</excludes>
+					</resource>
+					
+					<resource>
+					    <directory>src/main/resources</directory>
+					    <filtering>false</filtering>
+					    <excludes>
+							<exclude>**/*.*</exclude>
+						</excludes>
+					</resource>
+				</resources>
+				
 			</build>
 		</profile>
 		
