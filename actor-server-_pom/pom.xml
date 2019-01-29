@@ -16,6 +16,10 @@
 	<name>actor system server</name>
 	<url>http://www.cykcorp.org</url>
 	
+	<properties>
+		<data.source.jndi.name>java:/actor/server/dataSource</data.source.jndi.name>
+	</properties>
+	
 	<modules>
 		<!-- Persistence Layer -->
 		<module>../actor-server-persistence-entities</module>

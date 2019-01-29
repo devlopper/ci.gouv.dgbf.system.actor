@@ -4,7 +4,7 @@
 	version="2.0">
 
 	<persistence-unit name="persistenceUnit" transaction-type="JTA">
-		<jta-data-source>java:/actor/server/dataSource</jta-data-source>
+		<jta-data-source>${data.source.jndi.name}</jta-data-source>
 		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person</class>
 		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Role</class>
 		<class>ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequest</class>

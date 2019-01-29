@@ -13,10 +13,6 @@
 	<groupId>ci.gouv.dgbf.system.actor.server.deployment</groupId>
 	<artifactId>actor-server-deployment-web</artifactId>
 	<packaging>war</packaging>
-	
-	<properties>
-		<data.source.jndi.name>java:/actor/server/dataSource</data.source.jndi.name>
-	</properties>
 		
 	<build>
         <plugins>
