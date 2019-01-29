@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources xmlns="http://www.jboss.org/ironjacamar/schema">
 	<datasource 
-		jndi-name="java:global/actor/server/dataSource"
+		jndi-name="java:/actor/server/dataSource"
 		enabled="false" 
 		use-java-context="true" 
 		pool-name="actorServerDataSource_h2_memory"
@@ -16,7 +16,7 @@
 	</datasource>
 	
 	<datasource 
-		jndi-name="java:global/actor/server/dataSource"
+		jndi-name="java:/actor/server/dataSource"
 		enabled="false" 
 		use-java-context="true" 
 		pool-name="actorServerDataSource_mysql_local"
@@ -31,7 +31,7 @@
 	</datasource>
 	
 	<datasource 
-		jndi-name="java:global/actor/server/dataSource"
+		jndi-name="java:/actor/server/dataSource"
 		enabled="false" 
 		use-java-context="true" 
 		pool-name="actorServerDataSource_oracle_remote"
@@ -50,7 +50,7 @@
 	</datasource>
 	
 	<datasource 
-		jndi-name="java:global/actor/server/dataSource"
+		jndi-name="java:/actor/server/dataSource"
 		enabled="true" 
 		use-java-context="true" 
 		pool-name="actorServerDataSource_oracle_local"
