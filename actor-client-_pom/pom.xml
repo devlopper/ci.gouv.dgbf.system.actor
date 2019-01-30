@@ -16,6 +16,10 @@
 	<name>actor system client</name>
 	<url>http://www.cykcorp.org</url>
 	
+	<properties>
+		<server.port.offset>2</server.port.offset>
+	</properties>
+	
 	<modules>
 		<!-- Controller Layer -->
 		<module>../actor-client-controller-entities</module>

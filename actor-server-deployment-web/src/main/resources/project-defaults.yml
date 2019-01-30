@@ -1,9 +1,9 @@
 swarm:
   port:
-    offset: 1
+    offset: ${server.port.offset}
   datasources:
     data-sources:
-      ActorDs:
+      ${data.source.name}:
         jndi-name: ${data.source.jndi.name}
         driver-name: ${data.source.driver.name}
         connection-url: ${data.source.url}

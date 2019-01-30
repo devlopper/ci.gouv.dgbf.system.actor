@@ -14,6 +14,10 @@ public class ProxyClassUniformResourceIdentifierStringProviderFunctionRunnableIm
 			public void run() {
 				//setOutput("http://mic-demande-compte-server:8080/");
 				//setOutput("http://localhost:8080/actor/server");
+				//System.out.println("Pro Var : "+System.getProperties());
+				
+				//setOutput("http://localhost:8081");
+				
 			}
 		});
 	}

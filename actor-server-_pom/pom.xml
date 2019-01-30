@@ -17,7 +17,9 @@
 	<url>http://www.cykcorp.org</url>
 	
 	<properties>
+		<data.source.name>actorServerDataSource</data.source.name>
 		<data.source.jndi.name>java:/actor/server/dataSource</data.source.jndi.name>
+		<server.port.offset>1</server.port.offset>
 	</properties>
 	
 	<profiles>

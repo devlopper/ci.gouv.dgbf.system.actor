@@ -1,1 +1,2 @@
-mvn -f ../../pom.xml clean package wildfly-swarm:run -P microprofile.jboss.wildfly.swarm
+set ci.gouv.dgbf.system.actor.server.uri=http://localhost:8081
+mvn -f ../../pom.xml clean package wildfly-swarm:run -P microprofile.jboss.wildfly.swarm -Dci.gouv.dgbf.system.actor.server.uri=http://localhost:8081
