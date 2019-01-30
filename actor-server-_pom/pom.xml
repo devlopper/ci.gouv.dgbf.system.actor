@@ -20,6 +20,43 @@
 		<data.source.jndi.name>java:/actor/server/dataSource</data.source.jndi.name>
 	</properties>
 	
+	<profiles>
+
+		<!-- Data source -->
+		
+		<profile>
+			<id>data.source.mysql.local</id>
+			<properties>
+				<data.source.className>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</data.source.className>
+				<data.source.url>jdbc:mysql://localhost:3306/sib_actor</data.source.url>
+				<data.source.user>root</data.source.user>
+				<data.source.password>root</data.source.password>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>data.source.oracle.local</id>
+			<properties>
+				<data.source.driver.name>oracle</data.source.driver.name>
+				<data.source.className>oracle.jdbc.pool.OracleDataSource</data.source.className>
+				<data.source.url>jdbc:oracle:thin:@localhost:1521:xe</data.source.url>
+				<data.source.user>acteur</data.source.user>
+				<data.source.password>acteur</data.source.password>
+			</properties>
+		</profile>
+	
+		<profile>
+			<id>data.source.oracle.remote.sib.database</id>
+			<properties>
+				<data.source.className>oracle.jdbc.pool.OracleDataSource</data.source.className>
+				<data.source.url>jdbc:oracle:thin:@sib-database:1521:xe</data.source.url>
+				<data.source.user>acteur</data.source.user>
+				<data.source.password>acteur</data.source.password>
+			</properties>
+		</profile>
+		
+	</profiles>
+	
 	<modules>
 		<!-- Persistence Layer -->
 		<module>../actor-server-persistence-entities</module>

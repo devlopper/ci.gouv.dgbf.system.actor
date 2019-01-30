@@ -10,10 +10,6 @@
 
 	<name>Deployment Web</name>
 	
-	<properties>
-		<org.wildfly.plugins.wildfly-maven-plugin.version>1.2.2.Final</org.wildfly.plugins.wildfly-maven-plugin.version>
-	</properties>
-	
 	<groupId>ci.gouv.dgbf.system.actor.client.deployment</groupId>
 	<artifactId>actor-client-deployment-web</artifactId>
 	<packaging>war</packaging>
@@ -25,15 +21,5 @@
 			<version>0.0.1</version>
 		</dependency>
 	</dependencies>		
-	
-	<build>
-        <plugins>
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>${org.wildfly.plugins.wildfly-maven-plugin.version}</version>
-            </plugin>
-        </plugins>
-    </build>
 	
 </project>
