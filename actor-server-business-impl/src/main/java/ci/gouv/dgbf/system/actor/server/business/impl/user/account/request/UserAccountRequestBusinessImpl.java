@@ -6,11 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.inject.Singleton;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import org.cyk.utility.__kernel__.properties.Properties;
 import org.cyk.utility.random.RandomHelper;
@@ -29,8 +24,6 @@ import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.Use
 import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestServicePersistence;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Persons;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Role;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Roles;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequest;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestPerson;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestRole;
@@ -52,10 +45,10 @@ public class UserAccountRequestBusinessImpl extends AbstractBusinessEntityImpl<U
 		userAccountRequest.setCreationDate(new Date());
 		super.create(userAccountRequest, properties);
 		
-		Roles roles = userAccountRequest.getRoles();
+		Strings roles = userAccountRequest.getRoles();
 		if(__injectCollectionHelper__().isNotEmpty(roles)) {
 			Collection<UserAccountRequestRole> userAccountRequestRoles = new ArrayList<>();
-			for(Role index : roles.get())
+			for(String index : roles.get())
 				if(index!=null)
 					userAccountRequestRoles.add(new UserAccountRequestRole().setUserAccountRequest(userAccountRequest).setRole(index));
 			__inject__(UserAccountRequestRoleBusiness.class).createMany(userAccountRequestRoles);

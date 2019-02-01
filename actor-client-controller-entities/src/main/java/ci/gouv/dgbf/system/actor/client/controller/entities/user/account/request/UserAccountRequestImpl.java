@@ -24,7 +24,7 @@ import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Persons;
 import ci.gouv.dgbf.system.actor.client.controller.entities.service.Service;
 import ci.gouv.dgbf.system.actor.client.controller.entities.software.Software;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
+import ci.gouv.dgbf.system.user.client.controller.entities.account.Role;
 
 public class UserAccountRequestImpl extends AbstractDataImpl implements UserAccountRequest,Serializable {
 	private static final long serialVersionUID = 1L;

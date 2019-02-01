@@ -16,8 +16,6 @@ import org.cyk.utility.string.Strings;
 
 import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Person;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.person.Persons;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Role;
-import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.Roles;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -32,7 +30,7 @@ public class UserAccountRequest extends AbstractEntity implements Serializable {
 	
 	@Column(name=COLUMN_LETTER,length=1024 * 100) private String letter;
 	
-	@Transient private Roles roles;
+	@Transient private Strings roles;
 	@Transient private Strings services;
 	@Transient private Persons persons;
 	
@@ -41,16 +39,16 @@ public class UserAccountRequest extends AbstractEntity implements Serializable {
 		return (UserAccountRequest) super.setCode(code);
 	}
 	
-	public Roles getRoles(Boolean injectIfNull) {
-		return (Roles) __getInjectIfNull__(FIELD_ROLES, injectIfNull);
+	public Strings getRoles(Boolean injectIfNull) {
+		return (Strings) __getInjectIfNull__(FIELD_ROLES, injectIfNull);
 	}
 	
-	public UserAccountRequest addRoles(Collection<Role> roles) {
+	public UserAccountRequest addRoles(Collection<String> roles) {
 		getRoles(Boolean.TRUE).add(roles);
 		return this;
 	}
 	
-	public UserAccountRequest addRoles(Role...roles) {
+	public UserAccountRequest addRoles(String...roles) {
 		getRoles(Boolean.TRUE).add(roles);
 		return this;
 	}

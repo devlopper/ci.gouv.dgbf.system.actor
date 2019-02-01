@@ -11,7 +11,6 @@ import org.cyk.utility.collection.CollectionHelper;
 import org.cyk.utility.server.representation.AbstractEntityFromPersistenceEntity;
 
 import ci.gouv.dgbf.system.actor.server.representation.entities.person.PersonDto;
-import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.RoleDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,12 +22,12 @@ public class UserAccountRequestDto extends AbstractEntityFromPersistenceEntity i
 
 	private String letter;
 	private String creationDate;
-	private Collection<RoleDto> roles;
+	private Collection<String> roles;
 	private Collection<String> services;
 	private Collection<PersonDto> persons;
 	
 	@XmlElement(name="roles")
-	public Collection<RoleDto> getRoles(){
+	public Collection<String> getRoles(){
 		return roles;
 	}
 	
@@ -37,7 +36,7 @@ public class UserAccountRequestDto extends AbstractEntityFromPersistenceEntity i
 			if(roles == null)
 				roles = new ArrayList<>();
 			for(String index : codes)
-				roles.add(new RoleDto().setCode(index));
+				roles.add(index);
 		}
 		return this;
 	}

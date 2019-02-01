@@ -24,7 +24,7 @@ public class UserAccountRequestRoleBusinessImpl extends AbstractBusinessEntityIm
 	@Override
 	public BusinessServiceProvider<UserAccountRequestRole> create(UserAccountRequestRole userAccountRequestRole,Properties properties) {
 		if(__injectStringHelper__().isBlank(userAccountRequestRole.getCode())) {
-			userAccountRequestRole.setCode(userAccountRequestRole.getUserAccountRequest().getCode()+"_"+userAccountRequestRole.getRole().getCode());
+			userAccountRequestRole.setCode(userAccountRequestRole.getUserAccountRequest().getCode()+"_"+userAccountRequestRole.getRole());
 		}
 		return super.create(userAccountRequestRole, properties);
 	}

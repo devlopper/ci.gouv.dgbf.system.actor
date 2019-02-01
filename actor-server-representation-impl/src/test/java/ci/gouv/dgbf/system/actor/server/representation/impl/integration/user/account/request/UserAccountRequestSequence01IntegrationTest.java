@@ -5,9 +5,7 @@ import org.cyk.utility.server.representation.test.arquillian.AbstractRepresentat
 import org.jboss.arquillian.junit.InSequence;
 import org.junit.Test;
 
-import ci.gouv.dgbf.system.actor.server.representation.api.user.account.RoleRepresentation;
 import ci.gouv.dgbf.system.actor.server.representation.api.user.account.request.UserAccountRequestRepresentation;
-import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.RoleDtoCollection;
 import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountRequestDto;
 
 /**
@@ -26,8 +24,8 @@ public class UserAccountRequestSequence01IntegrationTest extends AbstractReprese
 	
 	@Test @InSequence(1)
 	public void setup() throws Exception{
-		__inject__(RoleRepresentation.class).createMany(new RoleDtoCollection().add("r01").add("r02").add("r03").add("r04").add("r05"));
-		assertionHelper.assertEqualsNumber(5, __inject__(RoleRepresentation.class).count().getEntity());
+		//__inject__(RoleRepresentation.class).createMany(new RoleDtoCollection().add("r01").add("r02").add("r03").add("r04").add("r05"));
+		//assertionHelper.assertEqualsNumber(5, __inject__(RoleRepresentation.class).count().getEntity());
 	}
 	
 	@Test @InSequence(2)

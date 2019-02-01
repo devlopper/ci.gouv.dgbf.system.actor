@@ -12,7 +12,6 @@ import org.cyk.utility.instance.InstanceHelper;
 import org.cyk.utility.string.StringHelper;
 
 import ci.gouv.dgbf.system.actor.server.business.api.person.PersonBusiness;
-import ci.gouv.dgbf.system.actor.server.business.api.user.account.RoleBusiness;
 import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestPersonPersistence;
 import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestRolePersistence;
 import ci.gouv.dgbf.system.actor.server.persistence.api.user.account.request.UserAccountRequestServicePersistence;
@@ -22,7 +21,6 @@ import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.reques
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestRole;
 import ci.gouv.dgbf.system.actor.server.persistence.entities.user.account.request.UserAccountRequestService;
 import ci.gouv.dgbf.system.actor.server.representation.entities.person.PersonDto;
-import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.RoleDto;
 import ci.gouv.dgbf.system.actor.server.representation.entities.user.account.request.UserAccountRequestDto;
 
 public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilderFunctionRunnableImpl implements Serializable {
@@ -38,9 +36,9 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			
 			if(__inject__(CollectionHelper.class).isNotEmpty(representation.getRoles())) {
 				persistence.setRoles(null);
-				for(RoleDto index : representation.getRoles()) {
-					if(__inject__(StringHelper.class).isNotBlank(index.getCode()))
-						persistence.getRoles(Boolean.TRUE).add(__inject__(RoleBusiness.class).findOneByBusinessIdentifier(index.getCode()));
+				for(String index : representation.getRoles()) {
+					if(__inject__(StringHelper.class).isNotBlank(index))
+						persistence.getRoles(Boolean.TRUE).add(index);
 				}
 			}
 			
@@ -74,7 +72,7 @@ public class InstanceBuilderFunctionRunnableImpl extends AbstractInstanceBuilder
 			if(__inject__(CollectionHelper.class).isNotEmpty(userAccountRequestRoles)) {
 				representation.setRoles(new ArrayList<>());
 				for(UserAccountRequestRole index : userAccountRequestRoles) {
-					representation.getRoles().add(__inject__(InstanceHelper.class).buildOne(RoleDto.class, index.getRole()));
+					representation.getRoles().add(index.getRole());
 				}
 			}
 			

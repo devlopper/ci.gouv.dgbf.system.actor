@@ -1,7 +1,6 @@
 package ci.gouv.dgbf.system.actor.client.controller.impl.user.account.request;
 
 import java.io.Serializable;
-import java.net.URL;
 
 import org.cyk.utility.__kernel__.function.AbstractFunctionRunnableImpl;
 import org.cyk.utility.__kernel__.function.FunctionRunnableMap;
@@ -9,20 +8,12 @@ import org.cyk.utility.client.controller.proxy.ProxyClassUniformResourceIdentifi
 import org.cyk.utility.client.controller.proxy.ProxyClassUniformResourceIdentifierStringProviderImpl;
 import org.cyk.utility.client.controller.test.TestControllerCreate;
 import org.cyk.utility.client.controller.test.arquillian.AbstractControllerArquillianIntegrationTestWithDefaultDeploymentAsSwram;
-import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.Test;
 
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
 
 public class UserAccountRequestControllerFunctionIntegrationTest extends AbstractControllerArquillianIntegrationTestWithDefaultDeploymentAsSwram {
 	private static final long serialVersionUID = 1L;
-	
-	static {
-		
-	}
-	
-	@ArquillianResource
-    private static URL CONTEXT_PATH;
 	
 	/* Create */
 	

@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.cyk.pom.jee.server.jboss</groupId>
-		<artifactId>pom-jee-server-jboss</artifactId>
-		<version>pom.jee.server.jboss.0.0.1</version>
+		<groupId>org.cyk.pom.jee.server</groupId>
+		<artifactId>pom-jee-server</artifactId>
+		<version>pom.jee.server.0.0.1</version>
 	</parent>
 
 	<groupId>ci.gouv.dgbf.system.actor.server</groupId>
@@ -20,6 +20,7 @@
 		<data.source.name>actorServerDataSource</data.source.name>
 		<data.source.jndi.name>java:/actor/server/dataSource</data.source.jndi.name>
 		<server.port.offset>1</server.port.offset>
+		<com.h2database.h2.version>1.4.197</com.h2database.h2.version>
 	</properties>
 	
 	<profiles>

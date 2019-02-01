@@ -18,9 +18,9 @@ import org.cyk.utility.string.repository.StringRepositoryResourceBundle;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.Function;
 import ci.gouv.dgbf.system.actor.client.controller.entities.function.FunctionCategory;
 import ci.gouv.dgbf.system.actor.client.controller.entities.person.Person;
-import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.Role;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.UserAccount;
 import ci.gouv.dgbf.system.actor.client.controller.entities.user.account.request.UserAccountRequest;
+import ci.gouv.dgbf.system.user.client.controller.entities.account.Role;
 
 @ApplicationScoped
 public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeLifeCycleListener implements Serializable {
@@ -35,6 +35,7 @@ public class ApplicationScopeLifeCycleListener extends AbstractApplicationScopeL
 		__inject__(FunctionRunnableMap.class).set(ProxyClassUniformResourceIdentifierStringProviderImpl.class, ProxyClassUniformResourceIdentifierStringProviderFunctionRunnableImpl.class,2);
 		
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Role.class);
+		
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(FunctionCategory.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(Function.class);
 		__inject__(UniformResourceIdentifierParameterValueMatrix.class).setClass(UserAccountRequest.class);
