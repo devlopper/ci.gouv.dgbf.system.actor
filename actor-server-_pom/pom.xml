@@ -21,6 +21,7 @@
 		<data.source.jndi.name>java:/actor/server/dataSource</data.source.jndi.name>
 		<server.port.offset>1</server.port.offset>
 		<com.h2database.h2.version>1.4.197</com.h2database.h2.version>
+		<hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
 	</properties>
 	
 	<profiles>
@@ -43,18 +44,18 @@
 				<data.source.driver.name>oracle</data.source.driver.name>
 				<data.source.className>oracle.jdbc.pool.OracleDataSource</data.source.className>
 				<data.source.url>jdbc:oracle:thin:@localhost:1521:xe</data.source.url>
-				<data.source.user>acteur</data.source.user>
-				<data.source.password>acteur</data.source.password>
+				<data.source.user>SIB_UTILISATEUR_DEMANDE</data.source.user>
+				<data.source.password>SIB_UTILISATEUR_DEMANDE</data.source.password>
 			</properties>
 		</profile>
 	
 		<profile>
-			<id>data.source.oracle.remote.sib.database</id>
+			<id>data.source.oracle.remote</id>
 			<properties>
 				<data.source.className>oracle.jdbc.pool.OracleDataSource</data.source.className>
 				<data.source.url>jdbc:oracle:thin:@sib-database:1521:xe</data.source.url>
-				<data.source.user>acteur</data.source.user>
-				<data.source.password>acteur</data.source.password>
+				<data.source.user>SIB_UTILISATEUR_DEMANDE</data.source.user>
+				<data.source.password>SIB_UTILISATEUR_DEMANDE</data.source.password>
 			</properties>
 		</profile>
 		

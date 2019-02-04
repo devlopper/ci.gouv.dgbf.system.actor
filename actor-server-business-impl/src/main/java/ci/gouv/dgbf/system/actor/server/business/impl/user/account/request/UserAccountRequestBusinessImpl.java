@@ -6,6 +6,11 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.inject.Singleton;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.cyk.utility.__kernel__.properties.Properties;
 import org.cyk.utility.random.RandomHelper;
@@ -75,44 +80,14 @@ public class UserAccountRequestBusinessImpl extends AbstractBusinessEntityImpl<U
 				}
 			__inject__(UserAccountRequestPersonBusiness.class).createMany(userAccountRequestPersons);
 		}
-		/*
+		
 		try {
-			String emailPort = "587";//gmail's smtp port
-
-			java.util.Properties emailProperties = System.getProperties();
-			emailProperties.put("mail.smtp.port", emailPort);
-			emailProperties.put("mail.smtp.auth", "true");
-			emailProperties.put("mail.smtp.starttls.enable", "true");
-			
-			String[] toEmails = { persons.getAt(0).getElectronicMailAddress() };
-			String emailSubject = "SIB - Demande de compte utilisateur";
-			String emailBody = userAccountRequest.getPersons().getAt(0).getFirstName()+" "+userAccountRequest.getPersons().getAt(0).getLastNames()
-					+" , votre demande de compte utilisateur a été enregistrée avec succès. Le code de cette demande est "+userAccountRequest.getCode();
-
-			Session mailSession = Session.getDefaultInstance(emailProperties, null);
-			MimeMessage emailMessage = new MimeMessage(mailSession);
-
-			for (int i = 0; i < toEmails.length; i++) {
-				emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
-			}
-
-			emailMessage.setSubject(emailSubject);
-			emailMessage.setContent(emailBody, "text/html");//for a html email
-			//emailMessage.setText(emailBody);// for a text email
-			
-			String emailHost = "smtp.gmail.com";
-			String fromUser = "dgbfdtideveloppers";//just the id alone without @gmail.com
-			String fromUserEmailPassword = "dgbf2016dti";
-
-			Transport transport = mailSession.getTransport("smtp");
-
-			transport.connect(emailHost, fromUser, fromUserEmailPassword);
-			transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
-			transport.close();
+			sendMail(userAccountRequest, persons);
 		}catch(Exception exception) {
-			throw new RuntimeException(exception);
+			exception.printStackTrace();
+			//throw new RuntimeException(exception); MAIL ERROR SHOULD NOT BLOCK
 		}
-		*/
+		
 		return this;
 	}
 	
@@ -127,5 +102,40 @@ public class UserAccountRequestBusinessImpl extends AbstractBusinessEntityImpl<U
 		__inject__(UserAccountRequestPersonBusiness.class).deleteMany(
 				__inject__(UserAccountRequestPersonPersistence.class).readByUserAccountRequest(userAccountRequest));
 		return super.delete(userAccountRequest, properties);
+	}
+	
+	private void sendMail(UserAccountRequest userAccountRequest,Persons persons) throws Exception {
+		String emailPort = "587";//gmail's smtp port
+
+		java.util.Properties emailProperties = System.getProperties();
+		emailProperties.put("mail.smtp.port", emailPort);
+		emailProperties.put("mail.smtp.auth", "true");
+		emailProperties.put("mail.smtp.starttls.enable", "true");
+		
+		String[] toEmails = { persons.getAt(0).getElectronicMailAddress() };
+		String emailSubject = "SIB - Demande de compte utilisateur";
+		String emailBody = userAccountRequest.getPersons().getAt(0).getFirstName()+" "+userAccountRequest.getPersons().getAt(0).getLastNames()
+				+" , votre demande de compte utilisateur a été enregistrée avec succès. Le code de cette demande est "+userAccountRequest.getCode();
+
+		Session mailSession = Session.getDefaultInstance(emailProperties, null);
+		MimeMessage emailMessage = new MimeMessage(mailSession);
+
+		for (int i = 0; i < toEmails.length; i++) {
+			emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
+		}
+
+		emailMessage.setSubject(emailSubject);
+		emailMessage.setContent(emailBody, "text/html");//for a html email
+		//emailMessage.setText(emailBody);// for a text email
+		
+		String emailHost = "smtp.gmail.com";
+		String fromUser = "dgbfdtideveloppers";//just the id alone without @gmail.com
+		String fromUserEmailPassword = "dgbf2016dti";
+
+		Transport transport = mailSession.getTransport("smtp");
+
+		transport.connect(emailHost, fromUser, fromUserEmailPassword);
+		transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
+		transport.close();
 	}
 }

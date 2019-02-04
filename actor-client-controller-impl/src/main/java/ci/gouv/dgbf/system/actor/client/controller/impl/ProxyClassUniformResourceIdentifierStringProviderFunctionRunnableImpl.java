@@ -14,15 +14,16 @@ public class ProxyClassUniformResourceIdentifierStringProviderFunctionRunnableIm
 		setRunnable(new Runnable() {
 			@Override
 			public void run() {
-				if(RoleRepresentation.class.equals(getFunction().getClazz())) {
-					setOutput("http://localhost:8080/user/server");
-				}
+				//if(RoleRepresentation.class.equals(getFunction().getClazz())) {
+				//	setOutput("http://localhost:8080/user/server");
+				//}
 				//setOutput("http://mic-demande-compte-server:8080/");
 				//setOutput("http://localhost:8080/actor/server");
 				//System.out.println("Pro Var : "+System.getProperties());
 				
 				//setOutput("http://localhost:8081");
 				
+				setOutput("http://mic-utilisateur-demande-server:8081/");
 			}
 		});
 	}
