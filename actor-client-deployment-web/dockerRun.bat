@@ -1,0 +1,1 @@
+docker run -e "ci.gouv.dgbf.system.user.server.uri=http://localhost:8080/" -p 8080:8080 mic-utilisateur-demande-client:latest
