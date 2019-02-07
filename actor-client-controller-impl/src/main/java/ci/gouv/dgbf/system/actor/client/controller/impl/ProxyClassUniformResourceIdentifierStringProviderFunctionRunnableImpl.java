@@ -5,6 +5,8 @@ import java.io.Serializable;
 import org.cyk.utility.__kernel__.function.AbstractFunctionRunnableImpl;
 import org.cyk.utility.client.controller.proxy.ProxyClassUniformResourceIdentifierStringProvider;
 
+import ci.gouv.dgbf.system.user.server.representation.api.account.RoleRepresentation;
+
 public class ProxyClassUniformResourceIdentifierStringProviderFunctionRunnableImpl extends AbstractFunctionRunnableImpl<ProxyClassUniformResourceIdentifierStringProvider> implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -12,9 +14,10 @@ public class ProxyClassUniformResourceIdentifierStringProviderFunctionRunnableIm
 		setRunnable(new Runnable() {
 			@Override
 			public void run() {
-				//if(RoleRepresentation.class.equals(getFunction().getClazz())) {
-				//	setOutput("http://localhost:8080/user/server");
-				//}
+				if(RoleRepresentation.class.equals(getFunction().getClazz())) {
+					//setOutput("http://localhost:8080/user/server");
+					setOutput("http://192.168.99.100:8080");
+				}
 				//setOutput("http://mic-demande-compte-server:8080/");
 				//setOutput("http://localhost:8080/actor/server");
 				//System.out.println("Pro Var : "+System.getProperties());
